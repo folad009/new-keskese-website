@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function Preloader() {
   const loaderRef = useRef<HTMLDivElement>(null);
@@ -66,7 +67,7 @@ export default function Preloader() {
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      className="fixed inset-0 z-9999 flex items-center justify-center"
     >
       {/* Column strips background */}
       <div className="absolute inset-0 flex">
@@ -79,13 +80,12 @@ export default function Preloader() {
       <div className="loader-content relative z-10 flex flex-col items-center gap-8">
         {/* Logo */}
         <div className="flex items-center gap-1 text-3xl md:text-4xl font-bold tracking-tight">
-          <span className="text-foreground">KESK</span>
-          <span className="text-primary">ESE</span>
+          <Image src="/keskese-logo.png" alt="KESKESE Limited Logo" width={400} height={200} /> 
         </div>
 
         {/* Progress bar */}
         <div className="w-48 md:w-64">
-          <div className="h-[2px] bg-foreground/10 rounded-full overflow-hidden">
+          <div className="h-0.5 bg-foreground/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-primary rounded-full transition-all duration-100 ease-out"
               style={{ width: `${progress}%` }}
