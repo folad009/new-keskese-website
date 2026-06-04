@@ -7,6 +7,9 @@ import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import Link from "next/link";
+import Image from "next/image";
+import VideoBreakSection from "@/components/video-break-section";
+import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -147,24 +150,30 @@ export default function OurStoryPage() {
         ref={heroRef}
         className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.12]"
+          >
+            <source src={STOCK_VIDEOS.concert} type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 text-center lg:px-12 w-full">
           <p className="story-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Our Story
           </p>
-         {/*<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="story-hero-line block">Born From a</span>
-            <span className="story-hero-line block text-gradient">
-              Belief That
-            </span>
-            <span className="story-hero-line block">Marketing Should</span>
-            <span className="story-hero-line block">
-              Be <em className="italic text-primary/80">Felt</em>
-            </span>
-          </h1>*/}
-          <p className="story-hero-text text-lg md:text-xl text-foreground/50 leading-relaxed">
-            Our goal is to always create memorable and meaningful Experiential Marketing Campaigns, Trade and Brand Activations
-          </p>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
+            <span className="story-hero-line block">Born From a Belief That</span>
+            <span className="story-hero-line block text-gradient">Marketing Should Be <em className="italic text-primary/80">Felt</em></span>
+          </h1>
+          {/*<p className="story-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl mx-auto leading-relaxed">
+            We design brand activations and immersive experiences that connect
+            audiences to brands — authentically and at scale.
+          </p>*/}
         </div>
       </section>
 
@@ -173,26 +182,21 @@ export default function OurStoryPage() {
         <div className="max-w-360 mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-secondary">
-              <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-[#d94fa0]/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="flex items-center justify-center gap-6">
-                    <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary">
-                        AL
-                      </span>
-                    </div>
-                    <span className="text-foreground/20 text-2xl">&</span>
-                    <div className="w-20 h-20 rounded-full bg-[#d94fa0]/20 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-[#d94fa0]">
-                        MR
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-foreground/30 text-sm uppercase tracking-widest">
-                    Co-Founders
-                  </p>
-                </div>
+              <Image
+                src={STOCK_IMAGES[2]}
+                alt="Keskese team at an experiential activation"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-transparent to-[#d94fa0]/20" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-foreground/80 text-sm uppercase tracking-widest font-medium">
+                  Since 2018
+                </p>
+                <p className="text-foreground/50 text-sm mt-1">
+                  Lagos · Experiential at heart
+                </p>
               </div>
             </div>
             <div>
@@ -203,26 +207,32 @@ export default function OurStoryPage() {
               </h2>
               <div className="space-y-6 text-foreground/50 leading-relaxed">
                 <p>
-                  We are a true independent agency dedicated to experiential
-                  marketing and brand activations. We are young and dynamic,
-                  nimble and flexible, providing our clients with the knowledge
-                  and resources necessary to achieve their goals and objectives
-                  on time, in full and within budget.
+                  We are an independent agency dedicated to experiential
+                  marketing and brand activations — nimble, flexible, and
+                  focused on delivering on time and on budget.
                 </p>
                 <p>
-                  Our campaigns and productions will create connections that
-                  positively influence how internal and external audiences feel,
-                  think and act about brands, products and services.
-                </p>
-                <p>
-                  Such campaigns will ignite improved performance, increase
-                  sales and build strong brand loyalty.
+                  Our work creates connections that influence how audiences
+                  feel, think, and act about brands — driving performance,
+                  sales, and loyalty.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <VideoBreakSection
+        compact
+        eyebrow="Our Craft"
+        line1="Designing Moments"
+        line2="People Remember"
+        subtext="From pop-ups to stadium-scale activations — we make brands felt, not just seen."
+        videoSrc={STOCK_VIDEOS.crowd}
+        primaryCta={{ href: "/#work", label: "See Our Work" }}
+        secondaryCta={{ href: "/contact", label: "Start a Project" }}
+        showStats={false}
+      />
 
       {/* Timeline */}
       <section ref={timelineRef} className="py-24 lg:py-40 bg-card">
@@ -313,7 +323,10 @@ export default function OurStoryPage() {
       <section className="py-24 lg:py-32 bg-card border-t border-border">
         <div className="max-w-360 mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Want to write the next chapter with us?
+            <span className="block">Let&apos;s Design Your</span>
+            <span className="block text-gradient whitespace-nowrap">
+              Next Chapter
+            </span>
           </h2>
           <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
             We&apos;re always looking for ambitious brands and talented people.

@@ -133,7 +133,7 @@ export default function ImmersiveInstallationsPage() {
             "For permanent and long-running installations, we offer maintenance contracts covering hardware monitoring, software updates, content refreshes, and on-call technical support.",
         },
       ]}
-      ctaText="Ready to build an immersive world?"
+      ctaText="Ready to design an immersive world?"
     />
   );
 }

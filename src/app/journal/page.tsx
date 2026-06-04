@@ -7,6 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Clock, Search, ArrowRight, X } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import VideoBreakSection from "@/components/video-break-section";
+import Image from "next/image";
+import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -21,6 +24,7 @@ interface Article {
   category: string;
   color: string;
   featured?: boolean;
+  image?: string;
 }
 
 const categories = [
@@ -298,7 +302,7 @@ export default function JournalPage() {
     <PageShell>
       <div ref={topRef}>
         {/* Sticky Filter Bar */}
-        <section className="pt-28 pb-6 sticky top-20 z-30 bg-background/90 backdrop-blur-xl border-b border-border">
+        <section className="pt-28 pb-6 sticky top-20 z-30 bg-background/90 backdrop-blur-2xl border-b border-border dark:bg-background/40">
           <div className="top-bar max-w-[1440px] mx-auto px-6 lg:px-12">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-center gap-6">
@@ -381,7 +385,14 @@ export default function JournalPage() {
                   <div
                     className={`relative aspect-[16/10] lg:aspect-auto lg:h-full min-h-[360px] bg-gradient-to-br ${featured[0].color}`}
                   >
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-700" />
+                    <Image
+                      src={featured[0].image ?? STOCK_IMAGES[0]}
+                      alt=""
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-700" />
 
                     <div className="absolute top-5 left-5 flex gap-2 z-10">
                       <span className="bg-primary text-primary-foreground text-xs px-3 py-1.5 rounded-full font-semibold">
@@ -441,7 +452,17 @@ export default function JournalPage() {
                             : article.color
                         }`}
                       >
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors duration-700" />
+                        <Image
+                          src={
+                            (i === 0 ? featured[0].image : article.image) ??
+                            STOCK_IMAGES[(i + 1) % STOCK_IMAGES.length]
+                          }
+                          alt=""
+                          fill
+                          sizes="40vw"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-700" />
                         <div className="absolute top-4 left-4 z-10">
                           <span className="bg-white/10 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-medium">
                             {i === 0
@@ -578,8 +599,19 @@ export default function JournalPage() {
                     {/* Thumbnail */}
                     <div
                       className={`card-image relative w-full sm:w-48 lg:w-56 flex-shrink-0 aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br ${article.color}`}
+                      data-cursor="card"
                     >
-                      <div className="absolute inset-0 bg-black/20" />
+                      <Image
+                        src={
+                          article.image ??
+                          STOCK_IMAGES[i % STOCK_IMAGES.length]
+                        }
+                        alt=""
+                        fill
+                        sizes="224px"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/30" />
                       <div className="absolute top-2.5 left-2.5">
                         <span className="bg-white/10 backdrop-blur-md text-white text-[10px] px-2.5 py-1 rounded-full font-medium">
                           {article.category}
@@ -632,6 +664,18 @@ export default function JournalPage() {
         </div>
       </section>
 
+      <VideoBreakSection
+        compact
+        eyebrow="Journal"
+        line1="Ideas That Shape"
+        line2="Experiential Work"
+        subtext="Insights, case studies, and culture — from the team designing what&apos;s next."
+        videoSrc={STOCK_VIDEOS.festival}
+        primaryCta={{ href: "/contact", label: "Work With Us" }}
+        secondaryCta={{ href: "/#work", label: "See Our Work" }}
+        showStats={false}
+      />
+
       {/* Newsletter CTA */}
       <section className="py-20 lg:py-28">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
@@ -644,14 +688,14 @@ export default function JournalPage() {
                   Newsletter
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                  Get insights delivered
-                  <br />
-                  <span className="text-gradient">straight to you</span>
+                  <span className="block">Insights Delivered</span>
+                  <span className="block text-gradient whitespace-nowrap">
+                    Straight to You
+                  </span>
                 </h2>
                 <p className="text-foreground/40 text-sm leading-relaxed">
-                  One email per week. The best of our thinking on experiential
-                  marketing — case studies, strategy, and industry signals. No
-                  filler.
+                  One email per week — case studies, strategy, and industry
+                  signals. No filler.
                 </p>
               </div>
               <div>

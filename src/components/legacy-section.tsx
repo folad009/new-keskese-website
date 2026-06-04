@@ -164,7 +164,7 @@ export default function LegacySection() {
               <br />
               <span className="text-gradient">Excellence</span>
             </h2>
-            <p className="text-lg text-foreground/40 leading-relaxed max-w-2xl">
+            <p className="text-lg text-white leading-relaxed max-w-2xl">
               Our work has been recognized by The Experiential Marketers
               Association of Nigeria (EXMAN). Every award represents a project
               where we pushed the boundaries of what experiential marketing can
@@ -186,7 +186,7 @@ export default function LegacySection() {
               <p className="text-4xl lg:text-5xl font-bold text-primary mb-1">
                 {totalAwards}+
               </p>
-              <p className="text-xs text-foreground/30 uppercase tracking-wider">
+              <p className="text-xs text-white uppercase tracking-wider">
                 Awards Won
               </p>
             </div>
@@ -194,7 +194,7 @@ export default function LegacySection() {
               <p className="text-4xl lg:text-5xl font-bold text-primary mb-1">
                 3x
               </p>
-              <p className="text-xs text-foreground/30 uppercase tracking-wider">
+              <p className="text-xs text-white uppercase tracking-wider">
                 Agency of the Year
               </p>
             </div>
@@ -202,7 +202,7 @@ export default function LegacySection() {
               <p className="text-4xl lg:text-5xl font-bold text-primary mb-1">
                 7
               </p>
-              <p className="text-xs text-foreground/30 uppercase tracking-wider">
+              <p className="text-xs text-white uppercase tracking-wider">
                 Award Bodies
               </p>
             </div>
@@ -247,9 +247,10 @@ export default function LegacySection() {
                     >
                       <div className="flex items-start gap-3 mb-3">
                         <div
-                          className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${colorClass}`}
+                          data-cursor="icon"
+                          className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 ${colorClass}`}
                         >
-                          <Icon className="w-4 h-4" />
+                          <Icon className="w-4 h-4 group-hover:stroke-[2.5] transition-all duration-300" />
                         </div>
                         <div className="min-w-0">
                           <h4 className="text-sm font-semibold leading-tight group-hover:text-primary transition-colors">
@@ -282,9 +283,21 @@ export default function LegacySection() {
             Recognized by
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            <Image src="/images/exman-logo-keskese.png" alt="Exman logo" width={300} height={100} />
-            <Image src="/images/ises-logo-keskese.png" alt="ISES logo" width={200} height={100} />
-          
+            <Image
+              src="/images/exman-logo-keskese.png"
+              alt="Exman logo"
+              width={300}
+              height={150}
+            
+            />
+            <Image
+              src="/images/ises-logo-keskese.png"
+              alt="ISES logo"
+              width={300}
+              height={150}
+             
+             
+            />
           </div>
         </div>
       </div>

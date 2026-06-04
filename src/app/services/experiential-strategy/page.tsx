@@ -133,7 +133,7 @@ export default function ExperientialStrategyPage() {
             "Yes. Many clients retain us for ongoing strategic counsel — annual experience portfolio planning, cultural trend briefings, measurement across multiple activations, and strategic input on briefs. Retainers give you continuous strategic thinking rather than project-by-project.",
         },
       ]}
-      ctaText="Let's build a strategy that delivers"
+      ctaText="Let's design a strategy that delivers"
     />
   );
 }

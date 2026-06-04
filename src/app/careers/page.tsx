@@ -13,6 +13,8 @@ import {
   Filter,
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import VideoBreakSection from "@/components/video-break-section";
+import { STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -184,21 +186,32 @@ export default function CareersPage() {
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.12]"
+          >
+            <source src={STOCK_VIDEOS.festival} type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-12 w-full">
           <p className="careers-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Careers
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="careers-hero-line block">Build</span>
+            <span className="careers-hero-line block">Design</span>
             <span className="careers-hero-line block text-gradient">
               Unforgettable
             </span>
             <span className="careers-hero-line block">Things With Us</span>
           </h1>
           <p className="careers-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl leading-relaxed">
-            Join a global team of 120+ creatives, strategists, and producers who
-            believe the best marketing is the kind people never want to end.
+            Join a team that believes the best marketing is the kind people
+            never want to end.
           </p>
 
           <div className="careers-hero-text flex flex-wrap gap-12 lg:gap-20 mt-12">
@@ -219,6 +232,18 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
+
+      <VideoBreakSection
+        compact
+        eyebrow="Careers"
+        line1="Create Work That"
+        line2="Moves People"
+        subtext="From immersive installations to global activations — this is where careers become craft."
+        videoSrc={STOCK_VIDEOS.crowd}
+        primaryCta={{ href: "#roles", label: "Browse Open Roles" }}
+        secondaryCta={{ href: "/about/culture", label: "Our Culture" }}
+        showStats={false}
+      />
 
       {/* Why Join */}
       <section className="py-24 lg:py-32 border-t border-border bg-card">
@@ -259,7 +284,7 @@ export default function CareersPage() {
       </section>
 
       {/* Job Listings */}
-      <section ref={jobsRef} className="py-24 lg:py-40">
+      <section ref={jobsRef} id="roles" className="py-24 lg:py-40">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
           <div className="jobs-section">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">

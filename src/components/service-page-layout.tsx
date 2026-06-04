@@ -12,6 +12,9 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import PageShell from "@/components/page-shell";
 import Link from "next/link";
+import Image from "next/image";
+import VideoBreakSection from "@/components/video-break-section";
+import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -20,6 +23,7 @@ export interface CaseStudy {
   client: string;
   result: string;
   color: string;
+  image?: string;
 }
 
 export interface ProcessStep {
@@ -219,6 +223,17 @@ export default function ServicePageLayout({
         ref={heroRef}
         className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.14]"
+          >
+            <source src={STOCK_VIDEOS.concert} type="video/mp4" />
+          </video>
+        </div>
         <div
           className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] ${accentGradient}`}
         />
@@ -331,6 +346,7 @@ export default function ServicePageLayout({
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
                           <span
+                            data-cursor="icon"
                             className={`feat-icon w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold transition-colors duration-300 ${
                               isExpanded
                                 ? "bg-primary text-primary-foreground"
@@ -403,6 +419,18 @@ export default function ServicePageLayout({
         </div>
       </section>
 
+      <VideoBreakSection
+        compact
+        eyebrow={label}
+        line1="Experiences That"
+        line2="Move People"
+        subtext={`See how ${label.toLowerCase()} comes to life — bold, immersive, and impossible to ignore.`}
+        videoSrc={STOCK_VIDEOS.festival}
+        primaryCta={{ href: "/contact", label: "Start a Project" }}
+        secondaryCta={{ href: "/#work", label: "View Our Work" }}
+        showStats={false}
+      />
+
       {/* ─── Process — Interactive Stepper ─── */}
       <section ref={processRef} className="py-24 lg:py-36">
         <div className="max-w-360 mx-auto px-6 lg:px-12">
@@ -429,6 +457,7 @@ export default function ServicePageLayout({
                   }`}
                 >
                   <div
+                    data-cursor="icon"
                     className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-300 ${
                       activeProcess === i
                         ? "bg-primary text-primary-foreground scale-110"
@@ -528,11 +557,18 @@ export default function ServicePageLayout({
 
           <div className="grid md:grid-cols-2 gap-5">
             {caseStudies.map((cs, i) => (
-              <div key={i} className="group cursor-pointer">
+              <div key={i} className="group cursor-pointer" data-cursor="card">
                 <div
                   className={`relative aspect-16/10 rounded-2xl overflow-hidden bg-linear-to-br ${cs.color} transition-transform duration-700 group-hover:scale-[1.02]`}
                 >
-                  <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-700" />
+                  <Image
+                    src={cs.image ?? STOCK_IMAGES[i % STOCK_IMAGES.length]}
+                    alt={cs.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors duration-700" />
 
                   <div className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-500">
                     <ArrowUpRight className="w-5 h-5 text-white" />
@@ -670,12 +706,14 @@ export default function ServicePageLayout({
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-6">
                 Ready?
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                {ctaText}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                <span className="block">Let&apos;s Design Your</span>
+                <span className="block text-gradient whitespace-nowrap">
+                  Next Experience
+                </span>
               </h2>
               <p className="text-foreground/35 mb-10 max-w-lg mx-auto">
-                Let&apos;s talk about how we can bring your vision to life.
-                Every great experience starts with a conversation.
+                {ctaText}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a

@@ -6,6 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import VideoBreakSection from "@/components/video-break-section";
+import Image from "next/image";
+import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -123,15 +126,18 @@ const team: TeamMember[] = [
 function TeamCard({
   member,
   large = false,
+  imageIndex = 0,
 }: {
   member: TeamMember;
   large?: boolean;
+  imageIndex?: number;
 }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
       className="group cursor-pointer"
+      data-cursor="card"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -140,12 +146,19 @@ function TeamCard({
           large ? "aspect-3/4" : "aspect-square"
         } rounded-2xl overflow-hidden bg-linear-to-br ${member.color} mb-4`}
       >
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
+        <Image
+          src={STOCK_IMAGES[imageIndex % STOCK_IMAGES.length]}
+          alt={member.name}
+          fill
+          sizes={large ? "25vw" : "20vw"}
+          className="object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors duration-500" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span
             className={`${
               large ? "text-6xl" : "text-4xl"
-            } font-bold text-white/30`}
+            } font-bold text-white/40`}
           >
             {member.initials}
           </span>
@@ -242,6 +255,17 @@ export default function MeetTheTeamPage() {
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.12]"
+          >
+            <source src={STOCK_VIDEOS.concert} type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-[#d94fa0]/5 via-transparent to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 w-full text-center">
           <p className="team-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
@@ -251,10 +275,9 @@ export default function MeetTheTeamPage() {
             <span className="team-hero-line block text-gradient">The People Behind the</span>
             <span className="team-hero-line block">Experiences</span>
           </h1>
-          <p className="team-hero-text text-lg md:text-xl text-foreground/50  text-center leading-relaxed">
-            120+ creatives, strategists, producers, and technologists across 4
-            studios — united by a shared obsession with creating moments that
-            matter.
+          <p className="team-hero-text text-lg md:text-xl text-foreground/50 text-center leading-relaxed max-w-2xl mx-auto">
+            Creatives, strategists, and producers united by one obsession —
+            creating moments that matter.
           </p>
         </div>
       </section>
@@ -268,12 +291,24 @@ export default function MeetTheTeamPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {leadership.map((member, index) => (
               <div key={index} className="leader-card">
-                <TeamCard member={member} large />
+                <TeamCard member={member} large imageIndex={index} />
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <VideoBreakSection
+        compact
+        eyebrow="The Team"
+        line1="People Who Design"
+        line2="The Extraordinary"
+        subtext="Every face behind the work — strategists, producers, creatives, and technologists."
+        videoSrc={STOCK_VIDEOS.festival}
+        primaryCta={{ href: "/careers", label: "Join the Team" }}
+        secondaryCta={{ href: "/contact", label: "Work With Us" }}
+        showStats={false}
+      />
 
       {/* Full Team */}
       <section ref={teamRef} className="py-24 lg:py-32 bg-card">
@@ -284,7 +319,7 @@ export default function MeetTheTeamPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
             {team.map((member, index) => (
               <div key={index} className="team-card">
-                <TeamCard member={member} />
+                <TeamCard member={member} imageIndex={index + 4} />
               </div>
             ))}
           </div>

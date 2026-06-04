@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/free-mode";
 
@@ -19,6 +20,8 @@ const projects = [
     category: "Immersive Installation",
     year: "2025",
     color: "from-violet-600/40 to-fuchsia-600/40",
+    image:
+      "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "A 360° sensory experience spanning 4 cities",
   },
   {
@@ -27,6 +30,8 @@ const projects = [
     category: "Brand Activation",
     year: "2025",
     color: "from-orange-600/40 to-red-600/40",
+    image:
+      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Street culture meets athletic performance",
   },
   {
@@ -35,6 +40,8 @@ const projects = [
     category: "Pop-Up Experience",
     year: "2024",
     color: "from-emerald-600/40 to-teal-600/40",
+    image:
+      "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "An interactive garden of sound & nature",
   },
   {
@@ -43,6 +50,8 @@ const projects = [
     category: "Event Production",
     year: "2024",
     color: "from-blue-600/40 to-cyan-600/40",
+    image:
+      "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "A 3-day summit reimagining the future of work",
   },
   {
@@ -51,6 +60,8 @@ const projects = [
     category: "Experiential Campaign",
     year: "2024",
     color: "from-amber-600/40 to-yellow-600/40",
+    image:
+      "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Multi-sensory dining across 8 cities",
   },
   {
@@ -59,6 +70,8 @@ const projects = [
     category: "Festival Activation",
     year: "2023",
     color: "from-lime-600/40 to-green-600/40",
+    image:
+      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "An illuminated trail at 12 global festivals",
   },
   {
@@ -67,6 +80,8 @@ const projects = [
     category: "Digital Experience",
     year: "2023",
     color: "from-pink-600/40 to-rose-600/40",
+    image:
+      "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "AR-powered fashion showcase",
   },
   {
@@ -75,6 +90,8 @@ const projects = [
     category: "Launch Event",
     year: "2023",
     color: "from-sky-600/40 to-indigo-600/40",
+    image:
+      "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Electric vehicle launch experienced by 50K+ people",
   },
 ];
@@ -137,11 +154,18 @@ export default function FeaturedWork() {
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer" data-cursor="card">
               <div
                 className={`relative aspect-3/4 rounded-2xl overflow-hidden bg-linear-to-br ${project.color} mb-4`}
               >
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 30vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-br from-black/30 via-black/10 to-black/40 group-hover:from-black/20 transition-colors duration-500" />
 
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-white/10 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-medium">

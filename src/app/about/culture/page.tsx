@@ -14,6 +14,9 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import VideoBreakSection from "@/components/video-break-section";
+import Image from "next/image";
+import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -185,6 +188,25 @@ export default function CulturePage() {
         ref={heroRef}
         className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
       >
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={STOCK_IMAGES[4]}
+            alt=""
+            fill
+            className="object-cover opacity-[0.18]"
+            sizes="100vw"
+            aria-hidden
+          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.1]"
+          >
+            <source src={STOCK_VIDEOS.festival} type="video/mp4" />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/5 via-transparent to-transparent" />
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-12 w-full">
           <p className="culture-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
@@ -198,9 +220,8 @@ export default function CulturePage() {
             <span className="culture-hero-line block">Bold People</span>
           </h1>
           <p className="culture-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl leading-relaxed">
-            We&apos;ve built a culture that attracts misfits, dreamers, and
-            doers — and gives them the freedom and support to do the best work
-            of their lives.
+            A culture built for bold ideas and bold people — where creative
+            risk is rewarded and the work never feels ordinary.
           </p>
         </div>
       </section>
@@ -221,9 +242,12 @@ export default function CulturePage() {
                   className="pillar-card group bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500"
                 >
                   <div
-                    className={`w-14 h-14 rounded-xl ${pillar.bg} flex items-center justify-center mb-6`}
+                    data-cursor="icon"
+                    className={`w-14 h-14 rounded-xl ${pillar.bg} flex items-center justify-center mb-6 transition-transform duration-300`}
                   >
-                    <Icon className={`w-7 h-7 ${pillar.color}`} />
+                    <Icon
+                      className={`w-7 h-7 ${pillar.color} group-hover:stroke-[2.5] transition-all duration-300`}
+                    />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{pillar.title}</h3>
                   <p className="text-foreground/40 text-sm leading-relaxed">
@@ -262,6 +286,18 @@ export default function CulturePage() {
           </div>
         </div>
       </section>
+
+      <VideoBreakSection
+        compact
+        eyebrow="Life at Keskese"
+        line1="Culture You Can"
+        line2="Feel in the Work"
+        subtext="The energy inside our studios shows up in every activation we design."
+        videoSrc={STOCK_VIDEOS.crowd}
+        primaryCta={{ href: "/careers", label: "View Open Roles" }}
+        secondaryCta={{ href: "/about/meet-the-team", label: "Meet the Team" }}
+        showStats={false}
+      />
 
       {/* Testimonials */}
       <section ref={testimonialsRef} className="py-24 lg:py-40">

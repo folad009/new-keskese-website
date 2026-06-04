@@ -80,7 +80,15 @@ export default function Preloader() {
       <div className="loader-content relative z-10 flex flex-col items-center gap-8">
         {/* Logo */}
         <div className="flex items-center gap-1 text-3xl md:text-4xl font-bold tracking-tight">
-          <Image src="/keskese-logo.png" alt="KESKESE Limited Logo" width={400} height={200} /> 
+          <Image
+            src="/keskese-logo.png"
+            alt="KESKESE Limited Logo"
+            width={400}
+            height={200}
+            priority
+            className="h-12 w-auto md:h-16"
+            style={{ width: "auto" }}
+          />
         </div>
 
         {/* Progress bar */}

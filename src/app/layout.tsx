@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Preloader from "@/components/preloader";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+
+const themeInitScript = `(function(){try{var t=localStorage.getItem("keskese-theme");if(t==="dark")document.documentElement.classList.add("dark");else document.documentElement.classList.remove("dark");}catch(e){}})();`;
 
 const inter = Inter({
   variable: "--font-sans",
@@ -32,10 +35,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
-      <body className="min-h-screen bg-background text-foreground overflow-x-hidden" suppressHydrationWarning>
-        <Preloader />
-        {children}
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body
+        className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-300"
+        suppressHydrationWarning
+      >
+        <ThemeProvider>
+          <Preloader />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

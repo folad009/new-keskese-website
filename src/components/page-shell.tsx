@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import AnnouncementBar from "@/components/announcement-bar";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import AmbientBackground from "@/components/ambient-background";
 
 const SmoothScroll = dynamic(() => import("@/components/smooth-scroll"), {
   ssr: false,
@@ -21,11 +22,14 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <AlpineProvider>
       <SmoothScroll>
+        <AmbientBackground />
         <CustomCursor />
         <AnnouncementBar />
         <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <main className="relative z-10">
+          {children}
+          <Footer />
+        </main>
       </SmoothScroll>
     </AlpineProvider>
   );

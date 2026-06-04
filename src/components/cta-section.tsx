@@ -47,8 +47,10 @@ export default function CTASection() {
               </p>
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8">
-                Let&apos;s Build Your
-                <span className="text-gradient">{" "}Next Experience</span>
+                <span className="block">Let&apos;s Design Your</span>
+                <span className="block text-gradient whitespace-nowrap">
+                  Next Experience
+                </span>
               </h2>
 
               {/*<p className="text-lg text-foreground/40 mb-12 max-w-xl mx-auto">

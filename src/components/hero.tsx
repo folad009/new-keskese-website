@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
@@ -9,6 +9,24 @@ gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.loop = true;
+
+    const play = () => {
+      video.play().catch(() => {});
+    };
+
+    play();
+    video.addEventListener("loadeddata", play);
+
+    return () => video.removeEventListener("loadeddata", play);
+  }, []);
 
   useGSAP(
     () => {
@@ -90,17 +108,14 @@ export default function Hero() {
             </p>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[5.5rem] font-bold leading-[0.99] tracking-tight mb-8">
-              <span className="hero-line block">We</span>
-              <span className="hero-line block text-gradient">Create</span>
-              <span className="hero-line block">Unforgettable</span>
+              <span className="hero-line block">We Create</span>
+              <span className="hero-line block text-gradient">Unforgettable</span>
               <span className="hero-line block">Experiences</span>
             </h1>
 
             <p className="hero-sub text-lg md:text-xl text-foreground/50 max-w-xl mb-10 leading-relaxed">
-              Our goal is to always create memorable and meaningful Experiential
-              Marketing Campaigns, Trade and Brand Activations, and Immersive
-              Experiences that connect brands with their audiences in a way that
-              is authentic, engaging, and impactful
+              Brand activations, immersive installations, and live experiences
+              that connect audiences to brands
             </p>
 
             <div className="hero-cta flex flex-col sm:flex-row items-start gap-4 mb-16">
@@ -154,21 +169,23 @@ export default function Hero() {
           </div>
 
           {/* Right — Looping video */}
-          <div className="hero-video hidden lg:block relative">
-            <div className="relative aspect-3/4 rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl shadow-primary/5">
+          <div className="hero-video relative">
+            <div className="relative aspect-4/5 lg:aspect-3/4 max-w-sm mx-auto lg:max-w-none rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl shadow-primary/5">
               <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source
-                  src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+                  src="/videos/cinematic-showcase.mp4"
                   type="video/mp4"
                 />
               </video>
-              <div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/10 to-transparent" />
+              {/*<div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/10 to-transparent" />
               <div className="absolute inset-0 bg-linear-to-l from-transparent to-background/20" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-2 mb-2">
@@ -180,7 +197,7 @@ export default function Hero() {
                 <p className="text-sm text-foreground/40">
                   A glimpse into our world of experiential design
                 </p>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

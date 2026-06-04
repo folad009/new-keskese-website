@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -109,16 +110,21 @@ export default function AboutSection() {
           </div>
 
           <div className="about-image relative aspect-4/5 rounded-2xl overflow-hidden bg-secondary">
-            <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-[#d94fa0]/20" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 rounded-full bg-primary/20 mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-primary">K</span>
-                </div>
-                <p className="text-foreground/30 text-sm uppercase tracking-widest">
-                  Since 2018
-                </p>
-              </div>
+            <Image
+              src="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Keskese experiential event production"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-primary/30 via-transparent to-[#d94fa0]/20" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="text-foreground/80 text-sm uppercase tracking-widest font-medium">
+                Since 2018
+              </p>
+              <p className="text-foreground/50 text-sm mt-1">
+                Crafting experiences across Africa & beyond
+              </p>
             </div>
           </div>
         </div>

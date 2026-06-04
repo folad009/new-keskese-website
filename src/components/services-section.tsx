@@ -96,19 +96,21 @@ export default function ServicesSection() {
               <Link
                 key={index}
                 href={service.href}
-                className={`svc-animate group relative bg-background border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer`}
+                className="svc-animate group relative bg-background border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer"
                 style={{
                   opacity: 0,
                   transform: "translateY(50px)",
-                  transition: "opacity 0.7s ease, transform 0.7s ease, border-color 0.5s ease",
+                  transition:
+                    "opacity 0.7s ease, transform 0.7s ease, border-color 0.5s ease",
                 }}
                 data-delay={String(0.1 + index * 0.1)}
               >
                 <div
-                  className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 transition-colors duration-500 ${service.bg}`}
+                  data-cursor="icon"
+                  className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 transition-all duration-500 origin-center ${service.bg}`}
                 >
                   <Icon
-                    className={`w-7 h-7 text-foreground/40 transition-colors duration-500 ${service.color}`}
+                    className={`w-7 h-7 text-foreground/40 transition-all duration-500 group-hover:stroke-[2.5] ${service.color}`}
                   />
                 </div>
 

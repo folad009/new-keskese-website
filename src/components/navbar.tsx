@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import ThemeToggle from "@/components/theme-toggle";
 
 const navLinks = [
   {
@@ -56,16 +57,28 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-8 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "top-3 px-4 lg:px-8" : "top-8 px-0"
       }`}
     >
-      <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <div
+        className={`max-w-360 mx-auto px-6 lg:px-12 transition-all duration-500 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-2xl border border-border/50 rounded-2xl shadow-lg shadow-black/5 dark:bg-background/35 dark:border-border/40 dark:shadow-black/10"
+            : ""
+        }`}
+      >
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="relative z-50">
-            <Image src="/keskese-logo.png" alt="KESKESE Limited Logo" width={150} height={100} />
+          <Link href="/" className="relative z-50 shrink-0">
+            <Image
+              src="/keskese-logo.png"
+              alt="KESKESE Limited Logo"
+              width={150}
+              height={100}
+              priority
+              className="h-10 w-auto"
+              style={{ width: "auto" }}
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -106,7 +119,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition-all hover:scale-105"
@@ -116,12 +130,16 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button
-            className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex lg:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="relative z-50 w-10 h-10 flex items-center justify-center"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 

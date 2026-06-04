@@ -11,6 +11,8 @@ import {
   Phone,
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
+import VideoBreakSection from "@/components/video-break-section";
+import { STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -18,7 +20,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function ContactPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const studiosRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,19 +32,14 @@ export default function ContactPage() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-      tl.from(".contact-hero-line", {
-        y: 100,
+      gsap.from(".contact-map", {
         opacity: 0,
+        y: 24,
         duration: 1,
-        stagger: 0.12,
-      }).from(
-        ".contact-hero-text",
-        { y: 40, opacity: 0, duration: 0.8 },
-        "-=0.4"
-      );
+        ease: "power4.out",
+      });
     },
-    { scope: heroRef }
+    { scope: heroRef },
   );
 
   useGSAP(
@@ -59,24 +55,7 @@ export default function ContactPage() {
         },
       });
     },
-    { scope: formRef }
-  );
-
-  useGSAP(
-    () => {
-      gsap.from(".studio-card", {
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: studiosRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-    },
-    { scope: studiosRef }
+    { scope: formRef },
   );
 
   const handleSubmit = (e: FormEvent) => {
@@ -99,10 +78,10 @@ export default function ContactPage() {
     <PageShell>
       {/* Map Hero */}
       <section ref={heroRef} className="relative pt-20">
-        <div className="relative w-full h-[60vh] min-h-100">
+        <div className="contact-map relative w-full h-[60vh] min-h-100">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.736227984135!2d3.3587267739203712!3d6.554946572799339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d92f4647123%3A0x47bb8bdfb4dd2400!2s10%20Olowogbowo%20St%2C%20Ilupeju%2C%20Lagos%20102215%2C%20Lagos!5e0!3m2!1sen!2sng!4v1779110845232!5m2!1sen!2sng"
-            className="absolute inset-0 w-full h-full border-0 grayscale invert opacity-80"
+            className="absolute inset-0 w-full h-full border-0 grayscale opacity-90 dark:invert"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -112,8 +91,20 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <VideoBreakSection
+        compact
+        eyebrow="Get in Touch"
+        line1="Let&apos;s Design Your"
+        line2="Next Experience"
+        subtext="Whether it&apos;s a product launch, brand activation, or immersive installation — we&apos;d love to hear from you."
+        videoSrc={STOCK_VIDEOS.concert}
+        primaryCta={{ href: "#contact-form", label: "Start a Project" }}
+        secondaryCta={{ href: "tel:+2348034022383", label: "Book a Call" }}
+        showStats={false}
+      />
+
       {/* Form + Info */}
-      <section ref={formRef} className="py-24 lg:py-32 border-t border-border">
+      <section ref={formRef} id="contact-form" className="py-24 lg:py-32 border-t border-border">
         <div className="max-w-360 mx-auto px-6 lg:px-12">
           <div className="form-section grid lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Contact Form */}
