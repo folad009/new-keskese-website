@@ -230,9 +230,15 @@ export default function CulturePage() {
       {/* Culture Pillars */}
       <section ref={pillarsRef} className="section-y-lg border-t border-border">
         <div className="max-w-[1440px] mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
-            Our Culture <span className="text-gradient">Pillars</span>
-          </h2>
+          <PopHeading
+            as="h2"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16"
+          >
+            <PopHeading.Line inline>Our Culture</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Pillars
+            </PopHeading.Line>
+          </PopHeading>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pillars.map((pillar, index) => {
@@ -265,9 +271,15 @@ export default function CulturePage() {
       <section ref={perksRef} className="section-y-lg bg-card">
         <div className="max-w-[1440px] mx-auto page-x">
           <div className="max-w-3xl mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Perks & <span className="text-gradient">Benefits</span>
-            </h2>
+            <PopHeading
+              as="h2"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            >
+              <PopHeading.Line inline>Perks &</PopHeading.Line>{" "}
+              <PopHeading.Line inline className="text-gradient">
+                Benefits
+              </PopHeading.Line>
+            </PopHeading>
             <p className="text-lg text-foreground/40 leading-relaxed">
               We believe that well-supported people do extraordinary work.
               Here&apos;s how we invest in our team.
@@ -303,9 +315,15 @@ export default function CulturePage() {
       {/* Testimonials */}
       <section ref={testimonialsRef} className="section-y-lg">
         <div className="max-w-[1440px] mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
-            From the <span className="text-gradient">Team</span>
-          </h2>
+          <PopHeading
+            as="h2"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16"
+          >
+            <PopHeading.Line inline>From the</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Team
+            </PopHeading.Line>
+          </PopHeading>
 
           <div className="grid lg:grid-cols-3 gap-6">
             {testimonials.map((item, index) => (
@@ -330,9 +348,11 @@ export default function CulturePage() {
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
         <div className="max-w-[1440px] mx-auto page-x text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Sound like your kind of place?
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-6">
+            <PopHeading.Line inline>
+              Sound like your kind of place?
+            </PopHeading.Line>
+          </PopHeading>
           <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
             We&apos;re hiring across all studios. Check out our open roles and
             come build unforgettable things.

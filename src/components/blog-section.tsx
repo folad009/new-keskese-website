@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Clock } from "lucide-react";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -73,11 +74,13 @@ export default function BlogSection() {
     <section ref={containerRef} id="journal" className="py-10 lg:py-16 bg-card">
       <div className="max-w-360 mx-auto px-6 lg:px-12">
         <div className="blog-heading flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            What&apos;s
-            <br />
-            <span className="text-gradient">New</span>
-          </h2>
+          <PopHeading
+            as="h2"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+          >
+            <PopHeading.Line>What&apos;s</PopHeading.Line>
+            <PopHeading.Line className="text-gradient">New</PopHeading.Line>
+          </PopHeading>
           <a
             href="#"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Send } from "lucide-react";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -46,12 +47,12 @@ export default function CTASection() {
                 Ready to create something unforgettable?
               </p>
 
-              <h2 className="heading-display mb-6 sm:mb-8">
-                <span className="block">Let&apos;s Design Your</span>
-                <span className="block text-gradient sm:whitespace-nowrap">
+              <PopHeading as="h2" className="heading-display mb-6 sm:mb-8">
+                <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
+                <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
                   Next Experience
-                </span>
-              </h2>
+                </PopHeading.Line>
+              </PopHeading>
 
               {/*<p className="text-lg text-foreground/40 mb-12 max-w-xl mx-auto">
                 Whether you&apos;re planning a product launch, brand activation,

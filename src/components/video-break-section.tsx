@@ -8,6 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import LazyVideo from "@/components/lazy-video";
 import { STOCK_VIDEOS } from "@/lib/visual-assets";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -166,18 +167,21 @@ export default function VideoBreakSection({
             </span>
           </div>
 
-          <h2
+          <PopHeading
+            as="h2"
             className={`max-w-5xl font-bold leading-[1.05] tracking-tight text-wrap-balance ${
               compact
                 ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                 : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
             }`}
           >
-            <span className={`${scopeId}-line block`}>{line1}</span>
-            <span className={`${scopeId}-line block text-gradient sm:whitespace-nowrap`}>
+            <PopHeading.Line className={`${scopeId}-line`}>{line1}</PopHeading.Line>
+            <PopHeading.Line
+              className={`${scopeId}-line text-gradient sm:whitespace-nowrap`}
+            >
               {line2}
-            </span>
-          </h2>
+            </PopHeading.Line>
+          </PopHeading>
 
           <p
             className={`${scopeId}-sub mt-4 sm:mt-6 max-w-xl text-sm sm:text-base text-foreground/60 md:text-lg px-2 sm:px-0`}

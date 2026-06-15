@@ -288,9 +288,9 @@ export default function MeetTheTeamPage() {
       {/* Leadership */}
       <section ref={leadershipRef} className="py-24 lg:py-32 border-t border-border">
         <div className="max-w-360 mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Leadership
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+            <PopHeading.Line inline>Leadership</PopHeading.Line>
+          </PopHeading>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {leadership.map((member, index) => (
               <div key={index} className="leader-card">
@@ -316,9 +316,9 @@ export default function MeetTheTeamPage() {
       {/* Full Team */}
       <section ref={teamRef} className="py-24 lg:py-32 bg-card">
         <div className="max-w-360 mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            The Team
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+            <PopHeading.Line inline>The Team</PopHeading.Line>
+          </PopHeading>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
             {team.map((member, index) => (
               <div key={index} className="team-card">
@@ -349,9 +349,9 @@ export default function MeetTheTeamPage() {
           </div>*/}
 
           <div className="text-center bg-card border border-border rounded-3xl p-12 lg:p-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Want to join us?
-            </h2>
+            <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-4">
+              <PopHeading.Line inline>Want to join us?</PopHeading.Line>
+            </PopHeading>
             <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
               We&apos;re always looking for extraordinary people who believe in
               the power of experiences.

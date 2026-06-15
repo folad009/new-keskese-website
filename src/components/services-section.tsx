@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import PopHeading from "@/components/pop-heading";
 
 type Service = {
   title: string;
@@ -89,9 +90,12 @@ export default function ServicesSection() {
           }}
           data-delay="0"
         >
-          <h2 className="heading-section">
-            Our <span className="text-gradient">Services</span>
-          </h2>
+          <PopHeading as="h2" className="heading-section">
+            <PopHeading.Line inline>Our</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Services
+            </PopHeading.Line>
+          </PopHeading>
           <Link
             href="/services/brand-activations"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"

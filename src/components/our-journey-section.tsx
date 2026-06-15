@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -206,11 +207,13 @@ export default function OurJourneySection() {
       />
 
       <div className="relative max-w-360 mx-auto page-x">
-        <h2 className="journey-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-16 lg:mb-20">
-          Our
-          <br />
-          <span className="text-gradient">Journey</span>
-        </h2>
+        <PopHeading
+          as="h2"
+          className="journey-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-16 lg:mb-20"
+        >
+          <PopHeading.Line>Our</PopHeading.Line>
+          <PopHeading.Line className="text-gradient">Journey</PopHeading.Line>
+        </PopHeading>
 
         <div className="journey-track relative">
           <div

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { Award, Trophy, Star, Crown } from "lucide-react";
 import Image from "next/image";
+import PopHeading from "@/components/pop-heading";
 
 const awards = [
   {
@@ -159,11 +160,10 @@ export default function LegacySection() {
             <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
               Recognition
             </p>
-            <h2 className="heading-section mb-4 sm:mb-6">
-              Award-Winning
-              <br />
-              <span className="text-gradient">Excellence</span>
-            </h2>
+            <PopHeading as="h2" className="heading-section mb-4 sm:mb-6">
+              <PopHeading.Line>Award-Winning</PopHeading.Line>
+              <PopHeading.Line className="text-gradient">Excellence</PopHeading.Line>
+            </PopHeading>
             <p className="text-base sm:text-lg text-foreground/50 leading-relaxed max-w-2xl">
               Our work has been recognized by The Experiential Marketers
               Association of Nigeria (EXMAN). Every award represents a project

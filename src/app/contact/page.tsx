@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import { STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -109,9 +110,12 @@ export default function ContactPage() {
           <div className="form-section grid lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Start a <span className="text-gradient">Project</span>
-              </h2>
+              <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-2">
+                <PopHeading.Line inline>Start a</PopHeading.Line>{" "}
+                <PopHeading.Line inline className="text-gradient">
+                  Project
+                </PopHeading.Line>
+              </PopHeading>
               <p className="text-foreground/40 mb-10">
                 Fill out the form and we&apos;ll get back to you within 24
                 hours.
@@ -303,9 +307,15 @@ export default function ContactPage() {
       {/* Studios 
       <section ref={studiosRef} className="section-y-lg bg-card">
         <div className="max-w-360 mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
-            Our <span className="text-gradient">Studios</span>
-          </h2>
+          <PopHeading
+            as="h2"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16"
+          >
+            <PopHeading.Line inline>Our</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Studios
+            </PopHeading.Line>
+          </PopHeading>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {studios.map((studio, i) => (
@@ -357,9 +367,11 @@ export default function ContactPage() {
       {/* Map placeholder / CTA 
       <section className="py-24 lg:py-32 border-t border-border">
         <div className="max-w-360 mx-auto page-x text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            4 Studios. 12 Markets. 1 Mission.
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-6">
+            <PopHeading.Line inline>
+              4 Studios. 12 Markets. 1 Mission.
+            </PopHeading.Line>
+          </PopHeading>
           <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
             Wherever your audience is, we can build an unforgettable experience
             for them.

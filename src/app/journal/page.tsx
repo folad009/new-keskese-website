@@ -690,12 +690,12 @@ export default function JournalPage() {
                 <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                   Newsletter
                 </p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                  <span className="block">Insights Delivered</span>
-                  <span className="block text-gradient sm:whitespace-nowrap">
+                <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                  <PopHeading.Line>Insights Delivered</PopHeading.Line>
+                  <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
                     Straight to You
-                  </span>
-                </h2>
+                  </PopHeading.Line>
+                </PopHeading>
                 <p className="text-foreground/40 text-sm leading-relaxed">
                   One email per week — case studies, strategy, and industry
                   signals. No filler.

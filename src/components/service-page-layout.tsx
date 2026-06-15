@@ -301,11 +301,12 @@ export default function ServicePageLayout({
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                 What we deliver
               </p>
-              <h2 className="heading-section mb-6">
-                Capabilities
-                <br />
-                <span className="text-gradient">& Expertise</span>
-              </h2>
+              <PopHeading as="h2" className="heading-section mb-6">
+                <PopHeading.Line>Capabilities</PopHeading.Line>
+                <PopHeading.Line className="text-gradient">
+                  & Expertise
+                </PopHeading.Line>
+              </PopHeading>
               <p className="text-foreground/35 leading-relaxed text-sm mb-8">
                 Click any capability to learn more about how we approach it.
               </p>
@@ -438,9 +439,12 @@ export default function ServicePageLayout({
             <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
               How it works
             </p>
-            <h2 className="heading-section">
-              Our <span className="text-gradient">Process</span>
-            </h2>
+            <PopHeading as="h2" className="heading-section">
+              <PopHeading.Line inline>Our</PopHeading.Line>{" "}
+              <PopHeading.Line inline className="text-gradient">
+                Process
+              </PopHeading.Line>
+            </PopHeading>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -542,9 +546,12 @@ export default function ServicePageLayout({
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                 Proof in the work
               </p>
-              <h2 className="heading-section">
-                Selected <span className="text-gradient">Results</span>
-              </h2>
+              <PopHeading as="h2" className="heading-section">
+                <PopHeading.Line inline>Selected</PopHeading.Line>{" "}
+                <PopHeading.Line inline className="text-gradient">
+                  Results
+                </PopHeading.Line>
+              </PopHeading>
             </div>
             <Link
               href="/#work"
@@ -604,11 +611,10 @@ export default function ServicePageLayout({
                 <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                   Got questions?
                 </p>
-                <h2 className="heading-section mb-6">
-                  Common
-                  <br />
-                  <span className="text-gradient">Questions</span>
-                </h2>
+                <PopHeading as="h2" className="heading-section mb-6">
+                  <PopHeading.Line>Common</PopHeading.Line>
+                  <PopHeading.Line className="text-gradient">Questions</PopHeading.Line>
+                </PopHeading>
                 <p className="text-foreground/35 leading-relaxed text-sm mb-8">
                   Can&apos;t find what you&apos;re looking for?
                 </p>
@@ -706,12 +712,12 @@ export default function ServicePageLayout({
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-6">
                 Ready?
               </p>
-              <h2 className="heading-display mb-4">
-                <span className="block">Let&apos;s Design Your</span>
-                <span className="block text-gradient sm:whitespace-nowrap">
+              <PopHeading as="h2" className="heading-display mb-4">
+                <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
+                <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
                   Next Experience
-                </span>
-              </h2>
+                </PopHeading.Line>
+              </PopHeading>
               <p className="text-foreground/35 mb-8 sm:mb-10 max-w-lg mx-auto text-sm sm:text-base px-2 sm:px-0">
                 {ctaText}
               </p>

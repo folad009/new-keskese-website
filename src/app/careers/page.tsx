@@ -251,9 +251,13 @@ export default function CareersPage() {
       {/* Why Join */}
       <section className="py-24 lg:py-32 border-t border-border bg-card">
         <div className="max-w-[1440px] mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Why <span className="text-gradient">KESKESE</span>?
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+            <PopHeading.Line inline>Why</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              KESKESE
+            </PopHeading.Line>
+            ?
+          </PopHeading>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
@@ -291,9 +295,15 @@ export default function CareersPage() {
         <div className="max-w-[1440px] mx-auto page-x">
           <div className="jobs-section">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                Open <span className="text-gradient">Roles</span>
-              </h2>
+              <PopHeading
+                as="h2"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold"
+              >
+                <PopHeading.Line inline>Open</PopHeading.Line>{" "}
+                <PopHeading.Line inline className="text-gradient">
+                  Roles
+                </PopHeading.Line>
+              </PopHeading>
 
               <div className="flex flex-wrap items-center gap-3">
                 <div className="flex items-center gap-2 text-foreground/40">
@@ -423,9 +433,12 @@ export default function CareersPage() {
       {/* Application Process */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
         <div className="max-w-[1440px] mx-auto page-x">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            How It <span className="text-gradient">Works</span>
-          </h2>
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+            <PopHeading.Line inline>How It</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Works
+            </PopHeading.Line>
+          </PopHeading>
           <div className="grid md:grid-cols-4 gap-6">
             {[
               {

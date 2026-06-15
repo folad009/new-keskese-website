@@ -136,11 +136,15 @@ export default function OurStoryPage() {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8">
-                About
-                <br />
-                <span className="text-gradient">Keskese Ltd.</span>
-              </h2>
+              <PopHeading
+                as="h2"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8"
+              >
+                <PopHeading.Line>About</PopHeading.Line>
+                <PopHeading.Line className="text-gradient">
+                  Keskese Ltd.
+                </PopHeading.Line>
+              </PopHeading>
               <div className="space-y-6 text-foreground/50 leading-relaxed">
                 <p>
                   We are an independent agency dedicated to experiential
@@ -176,11 +180,13 @@ export default function OurStoryPage() {
       <section ref={valuesRef} className="section-y-lg">
         <div className="max-w-360 mx-auto page-x">
           <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              What We
-              <br />
-              <span className="text-gradient">Stand For</span>
-            </h2>
+            <PopHeading
+              as="h2"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            >
+              <PopHeading.Line>What We</PopHeading.Line>
+              <PopHeading.Line className="text-gradient">Stand For</PopHeading.Line>
+            </PopHeading>
             <p className="text-lg text-foreground/40 leading-relaxed">
               These aren&apos;t just words on a wall. They&apos;re the filter
               through which every idea, every hire, and every project passes.
@@ -209,12 +215,12 @@ export default function OurStoryPage() {
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
         <div className="max-w-360 mx-auto page-x text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="block">Let&apos;s Design Your</span>
-            <span className="block text-gradient sm:whitespace-nowrap">
+          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-6">
+            <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
+            <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
               Next Chapter
-            </span>
-          </h2>
+            </PopHeading.Line>
+          </PopHeading>
           <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
             We&apos;re always looking for ambitious brands and talented people.
           </p>

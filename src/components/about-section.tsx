@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -70,14 +71,17 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-24 lg:items-stretch lg:min-h-[26rem] xl:min-h-[30rem] mb-12 sm:mb-16 lg:mb-24">
           <div className="flex flex-col justify-center">
             <div className="about-heading overflow-hidden">
-              <h2 className="heading-display">
-                <span className="about-heading-word inline-block">
+              <PopHeading as="h2" className="heading-display">
+                <PopHeading.Line inline className="about-heading-word">
                   Our
-                </span>{" "}
-                <span className="about-heading-word inline-block text-gradient">
+                </PopHeading.Line>{" "}
+                <PopHeading.Line
+                  inline
+                  className="about-heading-word text-gradient"
+                >
                   Philosophy
-                </span>
-              </h2>
+                </PopHeading.Line>
+              </PopHeading>
             </div>
 
             <div className="about-text mt-6 sm:mt-8 space-y-4 sm:space-y-6">

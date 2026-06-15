@@ -17,6 +17,7 @@ type PopHeadingProps = {
 type PopHeadingLineProps = {
   children: string;
   className?: string;
+  inline?: boolean;
 };
 
 function PopWord({ text, className }: { text: string; className?: string }) {
@@ -34,11 +35,17 @@ function PopWord({ text, className }: { text: string; className?: string }) {
   );
 }
 
-function PopHeadingLine({ children, className = "" }: PopHeadingLineProps) {
+function PopHeadingLine({
+  children,
+  className = "",
+  inline = false,
+}: PopHeadingLineProps) {
   const words = children.trim().split(/\s+/);
 
   return (
-    <span className={`block ${className}`}>
+    <span
+      className={`${inline ? "inline-block" : "block"} ${className}`.trim()}
+    >
       {words.map((word, index) => (
         <span key={`${word}-${index}`} className="inline-block">
           <PopWord text={word} className={className || undefined} />

@@ -9,6 +9,7 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { KESKESE_IMAGES } from "@/lib/visual-assets";
+import PopHeading from "@/components/pop-heading";
 import "swiper/css";
 import "swiper/css/free-mode";
 
@@ -112,10 +113,12 @@ export default function FeaturedWork() {
     <section ref={containerRef} id="work" data-scroll data-scroll-class="is-inview" className="py-10 sm:py-12 lg:py-14">
       <div className="max-w-495 mx-auto page-x mb-8 sm:mb-12">
         <div className="work-heading flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6">
-          <h2 className="heading-section">
-            Featured {" "}
-            <span className="text-gradient">Work</span>
-          </h2>
+          <PopHeading as="h2" className="heading-section">
+            <PopHeading.Line inline>Featured</PopHeading.Line>{" "}
+            <PopHeading.Line inline className="text-gradient">
+              Work
+            </PopHeading.Line>
+          </PopHeading>
           <a
             href="#"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
