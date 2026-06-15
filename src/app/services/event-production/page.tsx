@@ -9,6 +9,7 @@ export default function EventProductionPage() {
       headline={["End-to-End Production", "At Any Scale, Anywhere"]}
       gradientLine={1}
       intro="From intimate executive dinners to 50,000-person festivals, we produce events that are flawlessly executed, creatively ambitious, and strategically designed to achieve your business objectives."
+      heroImage="/images/keskese-web-2.jpg"
       accentGradient="from-blue-500/5 via-transparent to-transparent"
       features={[
         {

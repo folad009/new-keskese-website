@@ -46,6 +46,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --max-width-360: 90rem;
+  --max-width-495: 123.75rem;
 }
 
 :root {
@@ -133,8 +135,13 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans overflow-x-hidden;
     scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -183,6 +190,92 @@
 
   .ambient-grain {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-24 xl:py-36;
+  }
+
+  .section-y-lg {
+    @apply py-20 sm:py-28 lg:py-36 xl:py-40;
+  }
+
+  .page-x {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .heading-display {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight;
+  }
+
+  .heading-section {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight;
+  }
+
+  .text-wrap-balance {
+    text-wrap: balance;
+  }
+
+  .pop-heading:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--primary) 55%, transparent);
+    outline-offset: 6px;
+    border-radius: 0.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pop-heading__stack {
+      transform: none !important;
+    }
+  }
+
+  .svc-flip {
+    perspective: 1200px;
+  }
+
+  .svc-flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .svc-flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .svc-flip-back {
+    transform: rotateY(180deg);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .svc-flip:hover .svc-flip-inner,
+    .svc-flip:focus-within .svc-flip-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  .svc-flip.is-flipped .svc-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .svc-flip-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: auto !important;
+      transform: none !important;
+      transition: none;
+    }
+
+    .svc-flip {
+      height: auto !important;
+    }
+
+    .svc-flip-face {
+      position: relative !important;
+      inset: auto !important;
+      transform: none !important;
+    }
   }
 }
 

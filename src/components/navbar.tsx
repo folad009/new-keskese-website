@@ -55,20 +55,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <nav
       className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "top-3 px-4 lg:px-8" : "top-8 px-0"
+        scrolled ? "top-2 sm:top-3 px-2 sm:px-4 lg:px-8" : "top-4 sm:top-8 px-0"
       }`}
     >
       <div
-        className={`max-w-360 mx-auto px-6 lg:px-12 transition-all duration-500 ${
+        className={`max-w-495 mx-auto page-x transition-all duration-500 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-2xl border border-border/50 rounded-2xl shadow-lg shadow-black/5 dark:bg-background/35 dark:border-border/40 dark:shadow-black/10"
+            ? "bg-background/80 backdrop-blur-2xl border border-border/50 rounded-xl sm:rounded-2xl shadow-lg shadow-black/5 dark:bg-background/35 dark:border-border/40 dark:shadow-black/10"
             : ""
         }`}
       >
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="relative z-50 shrink-0">
             <Image
               src="/keskese-logo.png"
@@ -76,7 +83,7 @@ export default function Navbar() {
               width={150}
               height={100}
               priority
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
               style={{ width: "auto" }}
             />
           </Link>
@@ -91,11 +98,11 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors relative"
+                  className="px-4 py-2 text-lg font-bold text-foreground/70 hover:text-foreground transition-colors relative"
                 >
                   {link.label}
                   {link.submenu && (
-                    <span className="ml-1 text-xs">+</span>
+                    <span className="ml-1 text-md">+</span>
                   )}
                 </Link>
 
@@ -123,7 +130,7 @@ export default function Navbar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-lg font-semibold hover:brightness-110 transition-all hover:scale-105"
             >
               Get in touch
               <ArrowUpRight className="w-4 h-4" />
@@ -144,14 +151,14 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 bg-background z-40 pt-24">
-          <div className="px-6 py-8 space-y-2">
+        <div className="lg:hidden fixed inset-0 bg-background z-40 pt-20 sm:pt-24 overflow-y-auto overscroll-contain">
+          <div className="page-x py-6 sm:py-8 space-y-2 pb-[max(2rem,env(safe-area-inset-bottom))]">
             {navLinks.map((link) => (
               <div key={link.label}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-4xl font-bold py-3 text-foreground/70 hover:text-foreground transition-colors"
+                  className="block text-3xl sm:text-4xl font-bold py-2.5 sm:py-3 text-foreground/70 hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </Link>

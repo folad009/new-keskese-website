@@ -9,60 +9,11 @@ import PageShell from "@/components/page-shell";
 import Link from "next/link";
 import Image from "next/image";
 import VideoBreakSection from "@/components/video-break-section";
+import OurJourneySection from "@/components/our-journey-section";
+import PopHeading from "@/components/pop-heading";
 import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-const timeline = [
-  {
-    year: "2018",
-    title: "The Beginning",
-    description:
-      "Founded in a small studio in East London by two creatives who believed marketing should be felt, not just seen. Our first activation — a pop-up sensory lab for an indie skincare brand — got 10,000 visitors in 3 days.",
-  },
-  {
-    year: "2019",
-    title: "First Major Client",
-    description:
-      "Landed our first Fortune 500 client with a city-wide scavenger hunt activation that generated 2M+ social impressions. Opened our first proper office and grew the team to 15.",
-  },
-  {
-    year: "2020",
-    title: "Pivoting Through Adversity",
-    description:
-      "When live events went dark, we pioneered hybrid and fully digital experiential formats. Launched our Digital Experiences division and delivered 40+ virtual activations.",
-  },
-  {
-    year: "2021",
-    title: "Expanding Horizons",
-    description:
-      "Opened our New York studio. Won Agency of the Year at the Experiential Marketing Awards. Team grew to 60 people across two continents.",
-  },
-  {
-    year: "2022",
-    title: "Going Global",
-    description:
-      "Launched our Los Angeles studio. Delivered activations in 8 countries. Introduced our proprietary Impact Measurement Framework™ — bringing data rigour to experiential.",
-  },
-  {
-    year: "2023",
-    title: "Record-Breaking Year",
-    description:
-      "100th activation milestone. Won 15 industry awards including 3 Cannes Lions. Named #1 Experiential Agency by Campaign Magazine. Revenue crossed $25M.",
-  },
-  {
-    year: "2024",
-    title: "Innovation & Scale",
-    description:
-      "Opened our Tokyo studio for APAC expansion. Launched the Immersive Lab — an R&D unit for spatial computing and AI-driven experiences. Team surpassed 120 people.",
-  },
-  {
-    year: "2025",
-    title: "The Future Is Now",
-    description:
-      "200+ activations delivered. 50M+ people reached. 50+ awards won. Today we stand at the intersection of creativity, technology, and human connection — and we're just getting started.",
-  },
-];
 
 const values = [
   {
@@ -89,7 +40,6 @@ const values = [
 
 export default function OurStoryPage() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -107,23 +57,6 @@ export default function OurStoryPage() {
       );
     },
     { scope: heroRef },
-  );
-
-  useGSAP(
-    () => {
-      gsap.from(".timeline-item", {
-        x: -60,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: timelineRef.current,
-          start: "top 75%",
-          toggleActions: "play none none none",
-        },
-      });
-    },
-    { scope: timelineRef },
   );
 
   useGSAP(
@@ -148,28 +81,31 @@ export default function OurStoryPage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden"
+        className="relative min-h-[65vh] sm:min-h-[80vh] flex items-center pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.12]"
-          >
-            <source src={STOCK_VIDEOS.concert} type="video/mp4" />
-          </video>
+          <Image
+            src="/images/keskese-web-6.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-[0.12]"
+          />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 text-center lg:px-12 w-full">
           <p className="story-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Our Story
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="story-hero-line block">Born From a Belief That</span>
-            <span className="story-hero-line block text-gradient">Marketing Should Be <em className="italic text-primary/80">Felt</em></span>
-          </h1>
+          <PopHeading className="text-5xl sm:text-6xl md:text-5xl lg:text-[4.5rem] font-bold leading-[0.97] tracking-tight mb-10">
+            <PopHeading.Line className="story-hero-line">
+              Born From a Belief That
+            </PopHeading.Line>
+            <PopHeading.Line className="story-hero-line text-gradient">
+              Marketing Should Be Felt
+            </PopHeading.Line>
+          </PopHeading>
           {/*<p className="story-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl mx-auto leading-relaxed">
             We design brand activations and immersive experiences that connect
             audiences to brands — authentically and at scale.
@@ -179,7 +115,7 @@ export default function OurStoryPage() {
 
       {/* Founders Block */}
       <section className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+        <div className="max-w-360 mx-auto page-x">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-secondary">
               <Image
@@ -234,60 +170,11 @@ export default function OurStoryPage() {
         showStats={false}
       />
 
-      {/* Timeline */}
-      <section ref={timelineRef} className="py-24 lg:py-40 bg-card">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-16">
-            Our
-            <br />
-            <span className="text-gradient">Journey</span>
-          </h2>
-
-          <div className="relative">
-            <div className="absolute left-6.75 top-0 bottom-0 w-px bg-border lg:left-1/2 lg:-translate-x-px" />
-
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div
-                  key={index}
-                  className={`timeline-item relative flex items-start gap-8 lg:gap-16 ${
-                    index % 2 === 0
-                      ? "lg:flex-row"
-                      : "lg:flex-row-reverse lg:text-right"
-                  }`}
-                >
-                  <div className="hidden lg:block lg:w-1/2" />
-
-                  <div className="absolute left-0 lg:left-1/2 lg:-translate-x-1/2 shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center">
-                      <span className="text-xs font-bold text-primary">
-                        {item.year}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="ml-20 lg:ml-0 lg:w-1/2">
-                    <div
-                      className={`bg-background border border-border rounded-2xl p-6 lg:p-8 hover:border-primary/30 transition-colors ${
-                        index % 2 !== 0 ? "lg:mr-12" : "lg:ml-12"
-                      }`}
-                    >
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-foreground/40 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <OurJourneySection />
 
       {/* Values */}
-      <section ref={valuesRef} className="py-24 lg:py-40">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={valuesRef} className="section-y-lg">
+        <div className="max-w-360 mx-auto page-x">
           <div className="max-w-3xl mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               What We
@@ -321,10 +208,10 @@ export default function OurStoryPage() {
 
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12 text-center">
+        <div className="max-w-360 mx-auto page-x text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             <span className="block">Let&apos;s Design Your</span>
-            <span className="block text-gradient whitespace-nowrap">
+            <span className="block text-gradient sm:whitespace-nowrap">
               Next Chapter
             </span>
           </h2>

@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import Image from "next/image";
 import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
@@ -253,7 +254,7 @@ export default function MeetTheTeamPage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
+        className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -267,14 +268,16 @@ export default function MeetTheTeamPage() {
           </video>
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-[#d94fa0]/5 via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 w-full text-center">
+        <div className="relative max-w-7xl mx-auto page-x w-full text-center">
           <p className="team-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Meet the Team
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="team-hero-line block text-gradient">The People Behind the</span>
-            <span className="team-hero-line block">Experiences</span>
-          </h1>
+          <PopHeading className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
+            <PopHeading.Line className="team-hero-line text-gradient">
+              The People Behind the
+            </PopHeading.Line>
+            <PopHeading.Line className="team-hero-line">Experiences</PopHeading.Line>
+          </PopHeading>
           <p className="team-hero-text text-lg md:text-xl text-foreground/50 text-center leading-relaxed max-w-2xl mx-auto">
             Creatives, strategists, and producers united by one obsession —
             creating moments that matter.
@@ -284,7 +287,7 @@ export default function MeetTheTeamPage() {
 
       {/* Leadership */}
       <section ref={leadershipRef} className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+        <div className="max-w-360 mx-auto page-x">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             Leadership
           </h2>
@@ -312,7 +315,7 @@ export default function MeetTheTeamPage() {
 
       {/* Full Team */}
       <section ref={teamRef} className="py-24 lg:py-32 bg-card">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+        <div className="max-w-360 mx-auto page-x">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             The Team
           </h2>
@@ -328,7 +331,7 @@ export default function MeetTheTeamPage() {
 
       {/* Stats + Join CTA */}
       <section className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+        <div className="max-w-360 mx-auto page-x">
           {/*<div className="grid md:grid-cols-4 gap-8 mb-20">
             {[
               { value: "120+", label: "Team Members" },

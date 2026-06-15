@@ -9,6 +9,7 @@ export default function ImmersiveInstallationsPage() {
       headline={["Multi-Sensory Worlds That", "Transport Audiences"]}
       gradientLine={1}
       intro="We design and build immersive environments that engage all the senses — sight, sound, touch, even smell and taste. Installations that don't just display your brand; they let people live inside it."
+      heroImage="/images/keskese-web-3.jpg"
       accentGradient="from-purple-500/5 via-transparent to-transparent"
       features={[
         {

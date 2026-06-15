@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: "images.pexels.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "gsap", "swiper"],
   },
 };
 

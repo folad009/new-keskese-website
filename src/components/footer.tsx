@@ -31,9 +31,9 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-border bg-background">
-      <div className="max-w-360 mx-auto px-6 lg:px-12 py-10 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
+      <div className="max-w-360 mx-auto page-x py-10 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 sm:mb-16">
+          <div className="sm:col-span-2 lg:col-span-1 mb-4 sm:mb-0">
             <Link href="/" className="inline-block mb-6">
               <span className="text-2xl font-bold tracking-tighter">
                <Image
@@ -74,11 +74,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border text-center md:text-left">
           <p className="text-xs text-foreground/40">
             &copy; {new Date().getFullYear()} KESKESE Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-6">
             <Link
               href="#"
               className="text-xs text-foreground/40 hover:text-foreground/70 transition-colors"

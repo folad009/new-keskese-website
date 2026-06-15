@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { ArrowUpRight, Clock, Search, ArrowRight, X } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import Image from "next/image";
 import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
@@ -302,11 +303,13 @@ export default function JournalPage() {
     <PageShell>
       <div ref={topRef}>
         {/* Sticky Filter Bar */}
-        <section className="pt-28 pb-6 sticky top-20 z-30 bg-background/90 backdrop-blur-2xl border-b border-border dark:bg-background/40">
-          <div className="top-bar max-w-[1440px] mx-auto px-6 lg:px-12">
+        <section className="pt-24 sm:pt-28 pb-4 sm:pb-6 sticky top-16 sm:top-20 z-30 bg-background/90 backdrop-blur-2xl border-b border-border dark:bg-background/40">
+          <div className="top-bar max-w-[1440px] mx-auto page-x">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-center gap-6">
-                <h1 className="text-2xl font-bold tracking-tight">Journal</h1>
+                <PopHeading as="h1" className="text-xl sm:text-2xl font-bold tracking-tight">
+                  <PopHeading.Line>Journal</PopHeading.Line>
+                </PopHeading>
                 <div className="hidden md:flex items-center gap-1.5">
                   {categories.map((cat) => (
                     <button
@@ -375,7 +378,7 @@ export default function JournalPage() {
         {/* Featured — Bento layout */}
         {showFeatured && (
           <section className="py-10">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+            <div className="max-w-[1440px] mx-auto page-x">
               <div className="grid lg:grid-cols-5 gap-5">
                 {/* Main featured */}
                 <Link
@@ -527,7 +530,7 @@ export default function JournalPage() {
 
       {/* Articles Grid */}
       <section ref={gridRef} className="py-12 lg:py-16">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1440px] mx-auto page-x">
           {!showFeatured && (
             <div className="flex items-center justify-between mb-8">
               <p className="text-sm text-foreground/30">
@@ -678,7 +681,7 @@ export default function JournalPage() {
 
       {/* Newsletter CTA */}
       <section className="py-20 lg:py-28">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1440px] mx-auto page-x">
           <div className="bg-card border border-border rounded-3xl overflow-hidden relative">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#d94fa0]/5 via-transparent to-transparent" />
@@ -689,7 +692,7 @@ export default function JournalPage() {
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
                   <span className="block">Insights Delivered</span>
-                  <span className="block text-gradient whitespace-nowrap">
+                  <span className="block text-gradient sm:whitespace-nowrap">
                     Straight to You
                   </span>
                 </h2>

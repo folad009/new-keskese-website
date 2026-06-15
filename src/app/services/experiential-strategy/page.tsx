@@ -9,6 +9,7 @@ export default function ExperientialStrategyPage() {
       headline={["Data-Driven Strategy for", "Human-Centred Experiences"]}
       gradientLine={1}
       intro="Before we build anything, we build the case. Our strategists combine audience insights, cultural intelligence, and commercial rigour to ensure every experience delivers against hard business metrics."
+      heroImage="/images/keskese-web-6.jpg"
       accentGradient="from-green-500/5 via-transparent to-transparent"
       features={[
         {

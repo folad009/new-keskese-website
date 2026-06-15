@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import Image from "next/image";
 import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
@@ -186,7 +187,7 @@ export default function CulturePage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
+        className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
           <Image
@@ -208,17 +209,17 @@ export default function CulturePage() {
           </video>
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/5 via-transparent to-transparent" />
-        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-12 w-full">
+        <div className="relative max-w-[1440px] mx-auto page-x w-full">
           <p className="culture-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Our Culture
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="culture-hero-line block">Where Bold</span>
-            <span className="culture-hero-line block text-gradient">
+          <PopHeading className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
+            <PopHeading.Line className="culture-hero-line">Where Bold</PopHeading.Line>
+            <PopHeading.Line className="culture-hero-line text-gradient">
               Ideas Meet
-            </span>
-            <span className="culture-hero-line block">Bold People</span>
-          </h1>
+            </PopHeading.Line>
+            <PopHeading.Line className="culture-hero-line">Bold People</PopHeading.Line>
+          </PopHeading>
           <p className="culture-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl leading-relaxed">
             A culture built for bold ideas and bold people — where creative
             risk is rewarded and the work never feels ordinary.
@@ -227,8 +228,8 @@ export default function CulturePage() {
       </section>
 
       {/* Culture Pillars */}
-      <section ref={pillarsRef} className="py-24 lg:py-40 border-t border-border">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <section ref={pillarsRef} className="section-y-lg border-t border-border">
+        <div className="max-w-[1440px] mx-auto page-x">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
             Our Culture <span className="text-gradient">Pillars</span>
           </h2>
@@ -261,8 +262,8 @@ export default function CulturePage() {
       </section>
 
       {/* Perks & Benefits */}
-      <section ref={perksRef} className="py-24 lg:py-40 bg-card">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <section ref={perksRef} className="section-y-lg bg-card">
+        <div className="max-w-[1440px] mx-auto page-x">
           <div className="max-w-3xl mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Perks & <span className="text-gradient">Benefits</span>
@@ -300,8 +301,8 @@ export default function CulturePage() {
       />
 
       {/* Testimonials */}
-      <section ref={testimonialsRef} className="py-24 lg:py-40">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <section ref={testimonialsRef} className="section-y-lg">
+        <div className="max-w-[1440px] mx-auto page-x">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
             From the <span className="text-gradient">Team</span>
           </h2>
@@ -328,7 +329,7 @@ export default function CulturePage() {
 
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
+        <div className="max-w-[1440px] mx-auto page-x text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Sound like your kind of place?
           </h2>

@@ -91,7 +91,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <VideoBreakSection
+      {/*<VideoBreakSection
         compact
         eyebrow="Get in Touch"
         line1="Let&apos;s Design Your"
@@ -101,11 +101,11 @@ export default function ContactPage() {
         primaryCta={{ href: "#contact-form", label: "Start a Project" }}
         secondaryCta={{ href: "tel:+2348034022383", label: "Book a Call" }}
         showStats={false}
-      />
+      />*/}
 
       {/* Form + Info */}
       <section ref={formRef} id="contact-form" className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+        <div className="max-w-360 mx-auto page-x">
           <div className="form-section grid lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Contact Form */}
             <div className="lg:col-span-3">
@@ -285,13 +285,13 @@ export default function ContactPage() {
                   Prefer a call?
                 </h3>
                 <p className="text-foreground/40 text-sm mb-4">
-                  Book a 30-minute introductory call with our new business team.
+                  Make an introductory call to a member of our new business team.
                 </p>
                 <a
                   href="tel:+2348034022383"
                   className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:border-primary hover:text-primary transition-all"
                 >
-                  Book a Call
+                  Make a Call
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
@@ -301,8 +301,8 @@ export default function ContactPage() {
       </section>
 
       {/* Studios 
-      <section ref={studiosRef} className="py-24 lg:py-40 bg-card">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={studiosRef} className="section-y-lg bg-card">
+        <div className="max-w-360 mx-auto page-x">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-16">
             Our <span className="text-gradient">Studios</span>
           </h2>
@@ -356,7 +356,7 @@ export default function ContactPage() {
 
       {/* Map placeholder / CTA 
       <section className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12 text-center">
+        <div className="max-w-360 mx-auto page-x text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             4 Studios. 12 Markets. 1 Mission.
           </h2>

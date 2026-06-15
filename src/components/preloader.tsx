@@ -10,6 +10,12 @@ export default function Preloader() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem("keskese-visited") === "1") {
+      setDone(true);
+      return;
+    }
+
+    sessionStorage.setItem("keskese-visited", "1");
     document.body.style.overflow = "hidden";
 
     let current = 0;

@@ -1,0 +1,83 @@
+.ambient-stars {
+  --star-color: rgba(23, 23, 23, 0.35);
+  --star-accent: rgba(176, 42, 118, 0.55);
+  --star-glow: rgba(176, 42, 118, 0.08);
+}
+
+.dark .ambient-stars {
+  --star-color: rgba(255, 255, 255, 0.75);
+  --star-accent: rgba(217, 79, 160, 0.9);
+  --star-glow: rgba(176, 42, 118, 0.15);
+}
+
+.ambient-stars__base {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, var(--star-glow), transparent 70%),
+    var(--background);
+}
+
+.ambient-stars__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 120%;
+  top: -10%;
+}
+
+.ambient-stars__field {
+  position: absolute;
+  inset: 0;
+}
+
+.ambient-stars__star {
+  position: absolute;
+  display: block;
+  background-color: var(--star-color);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform: translate(-50%, -50%);
+}
+
+.ambient-stars__star--accent {
+  background-color: var(--star-accent);
+  box-shadow: 0 0 6px var(--star-accent);
+}
+
+.ambient-stars__star--twinkle {
+  animation: ambient-star-twinkle 3s steps(2, end) infinite;
+}
+
+@keyframes ambient-star-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.ambient-stars__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    transparent 40%,
+    var(--background) 92%
+  );
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-stars__star--twinkle {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-stars__layer--near {
+    opacity: 0.65;
+  }
+}

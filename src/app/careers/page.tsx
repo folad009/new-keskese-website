@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import { STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -184,7 +185,7 @@ export default function CareersPage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden"
+        className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -198,17 +199,19 @@ export default function CareersPage() {
           </video>
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-12 w-full">
+        <div className="relative max-w-[1440px] mx-auto page-x w-full">
           <p className="careers-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
             Careers
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
-            <span className="careers-hero-line block">Design</span>
-            <span className="careers-hero-line block text-gradient">
+          <PopHeading className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight mb-8">
+            <PopHeading.Line className="careers-hero-line">Design</PopHeading.Line>
+            <PopHeading.Line className="careers-hero-line text-gradient">
               Unforgettable
-            </span>
-            <span className="careers-hero-line block">Things With Us</span>
-          </h1>
+            </PopHeading.Line>
+            <PopHeading.Line className="careers-hero-line">
+              Things With Us
+            </PopHeading.Line>
+          </PopHeading>
           <p className="careers-hero-text text-lg md:text-xl text-foreground/50 max-w-2xl leading-relaxed">
             Join a team that believes the best marketing is the kind people
             never want to end.
@@ -247,7 +250,7 @@ export default function CareersPage() {
 
       {/* Why Join */}
       <section className="py-24 lg:py-32 border-t border-border bg-card">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1440px] mx-auto page-x">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             Why <span className="text-gradient">KESKESE</span>?
           </h2>
@@ -284,8 +287,8 @@ export default function CareersPage() {
       </section>
 
       {/* Job Listings */}
-      <section ref={jobsRef} id="roles" className="py-24 lg:py-40">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <section ref={jobsRef} id="roles" className="section-y-lg">
+        <div className="max-w-[1440px] mx-auto page-x">
           <div className="jobs-section">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -419,7 +422,7 @@ export default function CareersPage() {
 
       {/* Application Process */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1440px] mx-auto page-x">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
             How It <span className="text-gradient">Works</span>
           </h2>

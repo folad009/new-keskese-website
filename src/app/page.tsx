@@ -1,44 +1,28 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import AnnouncementBar from "@/components/announcement-bar";
 import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
+import HeroCarouselSlider from "@/components/hero-carousel-slider";
 import ClientMarquee from "@/components/client-marquee";
-import AboutSection from "@/components/about-section";
-import FeaturedWork from "@/components/featured-work";
-import VideoBreakSection from "@/components/video-break-section";
-import ServicesSection from "@/components/services-section";
-import TextMarquee from "@/components/text-marquee";
-import LegacySection from "@/components/legacy-section";
-//import BlogSection from "@/components/blog-section";
-import CTASection from "@/components/cta-section";
-import Footer from "@/components/footer";
-import AmbientBackground from "@/components/ambient-background";
+import HomeProviders from "@/components/home-providers";
 
-
-const SmoothScroll = dynamic(() => import("@/components/smooth-scroll"), {
-  ssr: false,
-});
-
-const CustomCursor = dynamic(() => import("@/components/custom-cursor"), {
-  ssr: false,
-});
-
-const AlpineProvider = dynamic(() => import("@/components/alpine-provider"), {
-  ssr: false,
-});
+const AboutSection = dynamic(() => import("@/components/about-section"));
+const FeaturedWork = dynamic(() => import("@/components/featured-work"));
+const VideoBreakSection = dynamic(
+  () => import("@/components/video-break-section"),
+);
+const ServicesSection = dynamic(() => import("@/components/services-section"));
+const TextMarquee = dynamic(() => import("@/components/text-marquee"));
+const LegacySection = dynamic(() => import("@/components/legacy-section"));
+const CTASection = dynamic(() => import("@/components/cta-section"));
+const Footer = dynamic(() => import("@/components/footer"));
 
 export default function Home() {
   return (
-    <AlpineProvider>
-    <SmoothScroll>
-      <AmbientBackground />
-      <CustomCursor />
+    <HomeProviders>
       <AnnouncementBar />
       <Navbar />
       <main className="relative z-10">
-        <Hero />
+        <HeroCarouselSlider />
         <ClientMarquee />
         <AboutSection />
         <FeaturedWork />
@@ -46,11 +30,9 @@ export default function Home() {
         <ServicesSection />
         <TextMarquee />
         <LegacySection />
-        {/*<BlogSection />*/}
         <CTASection />
         <Footer />
       </main>
-    </SmoothScroll>
-    </AlpineProvider>
+    </HomeProviders>
   );
 }

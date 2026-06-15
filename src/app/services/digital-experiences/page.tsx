@@ -9,6 +9,7 @@ export default function DigitalExperiencesPage() {
       headline={["Extending Brand Worlds", "Beyond thePhysical"]}
       gradientLine={1}
       intro="AR, VR, spatial computing, interactive web, and AI-powered experiences that extend your brand into digital dimensions — reaching audiences wherever they are, with the same emotional impact as live."
+      heroImage="/images/keskese-web-8.jpg"
       accentGradient="from-cyan-500/5 via-transparent to-transparent"
       features={[
         {

@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { KESKESE_IMAGES } from "@/lib/visual-assets";
 import "swiper/css";
 import "swiper/css/free-mode";
 
@@ -20,8 +21,7 @@ const projects = [
     category: "Immersive Installation",
     year: "2025",
     color: "from-violet-600/40 to-fuchsia-600/40",
-    image:
-      "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[0],
     description: "A 360° sensory experience spanning 4 cities",
   },
   {
@@ -30,8 +30,7 @@ const projects = [
     category: "Brand Activation",
     year: "2025",
     color: "from-orange-600/40 to-red-600/40",
-    image:
-      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[1],
     description: "Street culture meets athletic performance",
   },
   {
@@ -40,8 +39,7 @@ const projects = [
     category: "Pop-Up Experience",
     year: "2024",
     color: "from-emerald-600/40 to-teal-600/40",
-    image:
-      "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[2],
     description: "An interactive garden of sound & nature",
   },
   {
@@ -50,8 +48,7 @@ const projects = [
     category: "Event Production",
     year: "2024",
     color: "from-blue-600/40 to-cyan-600/40",
-    image:
-      "https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[3],
     description: "A 3-day summit reimagining the future of work",
   },
   {
@@ -60,8 +57,7 @@ const projects = [
     category: "Experiential Campaign",
     year: "2024",
     color: "from-amber-600/40 to-yellow-600/40",
-    image:
-      "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[4],
     description: "Multi-sensory dining across 8 cities",
   },
   {
@@ -70,8 +66,7 @@ const projects = [
     category: "Festival Activation",
     year: "2023",
     color: "from-lime-600/40 to-green-600/40",
-    image:
-      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[5],
     description: "An illuminated trail at 12 global festivals",
   },
   {
@@ -80,8 +75,7 @@ const projects = [
     category: "Digital Experience",
     year: "2023",
     color: "from-pink-600/40 to-rose-600/40",
-    image:
-      "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[6],
     description: "AR-powered fashion showcase",
   },
   {
@@ -90,8 +84,7 @@ const projects = [
     category: "Launch Event",
     year: "2023",
     color: "from-sky-600/40 to-indigo-600/40",
-    image:
-      "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: KESKESE_IMAGES[7],
     description: "Electric vehicle launch experienced by 50K+ people",
   },
 ];
@@ -116,12 +109,11 @@ export default function FeaturedWork() {
   );
 
   return (
-    <section ref={containerRef} id="work" className="py-10 lg:py-14">
-      <div className="max-w-360 mx-auto px-6 lg:px-12 mb-12">
-        <div className="work-heading flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Featured
-            <br />
+    <section ref={containerRef} id="work" data-scroll data-scroll-class="is-inview" className="py-10 sm:py-12 lg:py-14">
+      <div className="max-w-495 mx-auto page-x mb-8 sm:mb-12">
+        <div className="work-heading flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6">
+          <h2 className="heading-section">
+            Featured {" "}
             <span className="text-gradient">Work</span>
           </h2>
           <a
@@ -145,12 +137,13 @@ export default function FeaturedWork() {
           pauseOnMouseEnter: true,
         }}
         breakpoints={{
-          640: { slidesPerView: 1.5 },
-          768: { slidesPerView: 2.2 },
-          1024: { slidesPerView: 2.8 },
-          1280: { slidesPerView: 3.2 },
+          640: { slidesPerView: 1.3 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2.5 },
+          1280: { slidesPerView: 3 },
+          1536: { slidesPerView: 3.5 },
         }}
-        className="px-6! lg:px-12!"
+        className="px-4! sm:px-6! lg:px-12!"
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>

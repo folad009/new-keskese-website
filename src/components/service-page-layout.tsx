@@ -14,6 +14,7 @@ import PageShell from "@/components/page-shell";
 import Link from "next/link";
 import Image from "next/image";
 import VideoBreakSection from "@/components/video-break-section";
+import PopHeading from "@/components/pop-heading";
 import { STOCK_IMAGES, STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -37,6 +38,7 @@ export interface ServicePageProps {
   headline: string[];
   gradientLine: number;
   intro: string;
+  heroImage: string;
   features: { title: string; description: string }[];
   process: ProcessStep[];
   caseStudies: CaseStudy[];
@@ -50,6 +52,7 @@ export default function ServicePageLayout({
   headline,
   gradientLine,
   intro,
+  heroImage,
   features,
   process,
   caseStudies,
@@ -221,18 +224,17 @@ export default function ServicePageLayout({
       {/* ─── Hero ─── */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
+        className="relative min-h-[100svh] flex items-center pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.14]"
-          >
-            <source src={STOCK_VIDEOS.concert} type="video/mp4" />
-          </video>
+          <Image
+            src={heroImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-[0.12]"
+          />
         </div>
         <div
           className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] ${accentGradient}`}
@@ -240,7 +242,7 @@ export default function ServicePageLayout({
         <div className="absolute top-1/3 -right-40 w-125 h-125 rounded-full bg-primary/3 blur-3xl" />
         <div className="absolute bottom-1/4 -left-40 w-100 h-100 rounded-full bg-[#d94fa0]/3 blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 w-full text-center flex flex-col items-center">
+        <div className="relative max-w-7xl mx-auto page-x w-full text-center flex flex-col items-center">
           <div className="svc-hero-badge inline-flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-medium text-foreground/50 uppercase tracking-wider">
@@ -248,24 +250,22 @@ export default function ServicePageLayout({
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold leading-[0.92] tracking-tight mb-8">
+          <PopHeading className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold leading-[1.05] sm:leading-[0.92] tracking-tight mb-6 sm:mb-8 text-wrap-balance">
             {headline.map((line, i) => (
-              <span
-                key={i}
-                className={`svc-hero-line block ${
-                  i === gradientLine ? "text-gradient" : ""
-                }`}
+              <PopHeading.Line
+                key={line}
+                className={`svc-hero-line ${i === gradientLine ? "text-gradient" : ""}`}
               >
                 {line}
-              </span>
+              </PopHeading.Line>
             ))}
-          </h1>
+          </PopHeading>
 
-          <p className="svc-hero-text text-lg md:text-xl text-foreground/45 max-w-2xl leading-relaxed mb-10">
+          <p className="svc-hero-text text-base sm:text-lg md:text-xl text-foreground/45 max-w-2xl leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
             {intro}
           </p>
 
-          <div className="svc-hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="svc-hero-cta flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
             <a
               href="/contact"
               className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-semibold hover:brightness-110 transition-all hover:scale-[1.03]"
@@ -294,14 +294,14 @@ export default function ServicePageLayout({
       </section>
 
       {/* ─── Features — Interactive Expandable List ─── */}
-      <section ref={featuresRef} className="py-24 lg:py-36 border-t border-border">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-5 gap-16 lg:gap-20">
-            <div className="lg:col-span-2 lg:sticky lg:top-32 lg:self-start">
+      <section ref={featuresRef} className="section-y border-t border-border">
+        <div className="max-w-360 mx-auto page-x">
+          <div className="grid lg:grid-cols-5 gap-10 sm:gap-12 lg:gap-20">
+            <div className="lg:col-span-2 lg:sticky lg:top-24 xl:top-32 lg:self-start">
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                 What we deliver
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              <h2 className="heading-section mb-6">
                 Capabilities
                 <br />
                 <span className="text-gradient">& Expertise</span>
@@ -432,13 +432,13 @@ export default function ServicePageLayout({
       />
 
       {/* ─── Process — Interactive Stepper ─── */}
-      <section ref={processRef} className="py-24 lg:py-36">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={processRef} className="section-y">
+        <div className="max-w-360 mx-auto page-x">
           <div className="process-section-heading mb-16">
             <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
               How it works
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h2 className="heading-section">
               Our <span className="text-gradient">Process</span>
             </h2>
           </div>
@@ -535,14 +535,14 @@ export default function ServicePageLayout({
       </section>
 
       {/* ─── Case Studies ─── */}
-      <section ref={workRef} className="py-24 lg:py-36 bg-card">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={workRef} className="section-y bg-card">
+        <div className="max-w-360 mx-auto page-x">
           <div className="work-heading flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                 Proof in the work
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+              <h2 className="heading-section">
                 Selected <span className="text-gradient">Results</span>
               </h2>
             </div>
@@ -596,15 +596,15 @@ export default function ServicePageLayout({
       </section>
 
       {/* ─── FAQ — Interactive Accordion ─── */}
-      <section ref={faqRef} className="py-24 lg:py-36">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={faqRef} className="section-y">
+        <div className="max-w-360 mx-auto page-x">
           <div className="grid lg:grid-cols-5 gap-16 lg:gap-20">
             <div className="lg:col-span-2">
               <div className="faq-heading lg:sticky lg:top-32">
                 <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
                   Got questions?
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                <h2 className="heading-section mb-6">
                   Common
                   <br />
                   <span className="text-gradient">Questions</span>
@@ -695,24 +695,24 @@ export default function ServicePageLayout({
       </section>
 
       {/* ─── CTA ─── */}
-      <section ref={ctaRef} className="py-24 lg:py-36 bg-card">
-        <div className="max-w-360 mx-auto px-6 lg:px-12">
+      <section ref={ctaRef} className="section-y bg-card">
+        <div className="max-w-360 mx-auto page-x">
           <div className="cta-inner relative bg-background border border-border rounded-3xl overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,var(--tw-gradient-stops))] from-[#d94fa0]/5 via-transparent to-transparent" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent" />
 
-            <div className="relative px-8 py-16 lg:px-20 lg:py-24 text-center">
+            <div className="relative px-5 py-10 sm:px-8 sm:py-16 lg:px-20 lg:py-24 text-center">
               <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-6">
                 Ready?
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <h2 className="heading-display mb-4">
                 <span className="block">Let&apos;s Design Your</span>
-                <span className="block text-gradient whitespace-nowrap">
+                <span className="block text-gradient sm:whitespace-nowrap">
                   Next Experience
                 </span>
               </h2>
-              <p className="text-foreground/35 mb-10 max-w-lg mx-auto">
+              <p className="text-foreground/35 mb-8 sm:mb-10 max-w-lg mx-auto text-sm sm:text-base px-2 sm:px-0">
                 {ctaText}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

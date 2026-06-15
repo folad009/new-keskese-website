@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
+import PopHeading from "@/components/pop-heading";
 
 gsap.registerPlugin(useGSAP);
 
@@ -92,43 +93,48 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      data-scroll
+      data-scroll-class="is-inview"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-12 sm:pb-16"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
 
       <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-[#d94fa0]/5 blur-3xl" />
 
-      <div className="relative max-w-360 mx-auto px-6 lg:px-12 py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-495 mx-auto page-x py-12 sm:py-16 lg:py-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left — Text content */}
-          <div>
-            <p className="hero-sub text-sm md:text-base uppercase tracking-[0.3em] text-primary font-medium mb-8">
+          <div className="order-2 lg:order-1">
+            <p className="hero-sub text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary font-medium mb-4 sm:mb-8">
               Experiential Marketing Agency
             </p>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[5.5rem] font-bold leading-[0.99] tracking-tight mb-8">
-              <span className="hero-line block">We Create</span>
-              <span className="hero-line block text-gradient">Unforgettable</span>
-              <span className="hero-line block">Experiences</span>
-            </h1>
+            <PopHeading className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[5.5rem] font-bold leading-[1.05] tracking-tight mb-6 sm:mb-8 text-wrap-balance">
+              <PopHeading.Line className="hero-line">
+                We Create Unforgettable
+              </PopHeading.Line>
+              <PopHeading.Line className="hero-line text-gradient">
+                Experiences
+              </PopHeading.Line>
+            </PopHeading>
 
-            <p className="hero-sub text-lg md:text-xl text-foreground/50 max-w-xl mb-10 leading-relaxed">
+            <p className="hero-sub text-base sm:text-lg md:text-xl text-foreground/50 mb-8 sm:mb-10 leading-relaxed max-w-xl">
               Brand activations, immersive installations, and live experiences
               that connect audiences to brands
             </p>
 
-            <div className="hero-cta flex flex-col sm:flex-row items-start gap-4 mb-16">
+            <div className="hero-cta flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-10 sm:mb-16">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-semibold hover:brightness-110 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold hover:brightness-110 transition-all hover:scale-105"
               >
                 Explore Our Work
                 <ArrowUpRight className="w-5 h-5" />
               </a>
               <a
                 href="/about/our-story"
-                className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-8 py-4 rounded-full text-base font-medium hover:border-primary hover:text-primary transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-foreground/20 text-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-medium hover:border-primary hover:text-primary transition-all"
               >
                 Our Story
               </a>
@@ -169,8 +175,8 @@ export default function Hero() {
           </div>
 
           {/* Right — Looping video */}
-          <div className="hero-video relative">
-            <div className="relative aspect-4/5 lg:aspect-3/4 max-w-sm mx-auto lg:max-w-none rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl shadow-primary/5">
+          <div className="hero-video relative order-1 lg:order-2" data-scroll data-scroll-speed="0.08">
+            <div className="relative aspect-video w-full rounded-xl sm:rounded-2xl lg:rounded-sm overflow-hidden border border-foreground/10 shadow-2xl shadow-primary/5">
               <video
                 ref={videoRef}
                 autoPlay
@@ -203,7 +209,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-scroll absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="hero-scroll absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2">
         <span className="text-xs uppercase tracking-[0.3em] text-foreground/30">
           Scroll
         </span>

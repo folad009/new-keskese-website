@@ -9,6 +9,7 @@ export default function PopUpExperiencesPage() {
       headline={["Temporary Spaces, ", "Permanent Impressions"]}
       gradientLine={1}
       intro="We design and deliver pop-up retail spaces, brand residencies, and temporary experiences that generate buzz, drive footfall, and create moments of genuine discovery — then vanish, leaving only the memory."
+      heroImage="/images/keskese-web-4.jpg"
       accentGradient="from-rose-500/5 via-transparent to-transparent"
       features={[
         {

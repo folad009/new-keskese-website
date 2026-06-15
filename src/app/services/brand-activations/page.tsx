@@ -9,6 +9,7 @@ export default function BrandActivationsPage() {
       headline={["Live Brand Moments", "That Spark Conversation"]}
       gradientLine={1}
       intro="We create live brand experiences that cut through the noise — immersive, shareable moments designed to forge emotional connections between your brand and the people who matter most."
+      heroImage="/images/keskese-web-7.jpg"
       accentGradient="from-yellow-500/5 via-transparent to-transparent"
       features={[
         {

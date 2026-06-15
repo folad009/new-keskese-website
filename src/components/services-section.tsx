@@ -1,46 +1,44 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  Sparkles,
-  Calendar,
-  Box,
-  ArrowUpRight,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
-const services = [
+type Service = {
+  title: string;
+  href: string;
+  description: string;
+  image: string;
+};
+
+const services: Service[] = [
   {
-    icon: Sparkles,
     title: "Brand Activations",
     href: "/services/brand-activations",
     description:
       "Beyond defining the immediate opportunity, audience and objectives, we dig deeper. We strive to understand your brand positioning, company culture, overall marketing strategies and tactics.",
-    color: "group-hover:text-yellow-400",
-    bg: "group-hover:bg-yellow-400/10",
+    image: "/images/keskese-web-1.jpg",
   },
   {
-    icon: Calendar,
     title: "Event Experience Production",
     href: "/services/event-production",
     description:
       "We take time to come up with creative concepts, which we implement using processes and assets necessary to the event to reality. Logistics are mapped, staff is readied, the program is launched and tactics are executed.",
-    color: "group-hover:text-blue-400",
-    bg: "group-hover:bg-blue-400/10",
+    image: "/images/keskese-web-2.jpg",
   },
   {
-    icon: Box,
     title: "Brand Exhibitions",
     href: "/services/immersive-installations",
     description:
       "Showcase your brand in style with our brand exhibitions. From design to execution, we create visually stunning exhibitions that highlight your brand's uniqueness. Our team specializes in designing and executing exhibitions.",
-    color: "group-hover:text-purple-400",
-    bg: "group-hover:bg-purple-400/10",
+    image: "/images/keskese-web-3.jpg",
   },
 ];
 
 export default function ServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -60,25 +58,39 @@ export default function ServicesSection() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
+  const handleFlip = (index: number) => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      setFlippedIndex((current) => (current === index ? null : index));
+    }
+  };
+
   return (
-    <section ref={containerRef} id="services" className="py-10 lg:py-16 bg-card">
-      <div className="max-w-360 mx-auto px-6 lg:px-12">
+    <section
+      ref={containerRef}
+      id="services"
+      data-scroll
+      data-scroll-class="is-inview"
+      className="py-10 sm:py-12 lg:py-16 bg-card"
+    >
+      <div className="max-w-495 mx-auto page-x">
         <div
-          className="svc-animate flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
-          style={{ opacity: 0, transform: "translateY(40px)", transition: "opacity 0.8s ease, transform 0.8s ease" }}
+          className="svc-animate flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-12 lg:mb-16"
+          style={{
+            opacity: 0,
+            transform: "translateY(40px)",
+            transition: "opacity 0.8s ease, transform 0.8s ease",
+          }}
           data-delay="0"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Our
-            <br />
-            <span className="text-gradient">Services</span>
+          <h2 className="heading-section">
+            Our <span className="text-gradient">Services</span>
           </h2>
           <Link
             href="/services/brand-activations"
@@ -89,41 +101,85 @@ export default function ServicesSection() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => {
-            const Icon = service.icon;
+            const isFlipped = flippedIndex === index;
+
             return (
-              <Link
-                key={index}
-                href={service.href}
-                className="svc-animate group relative bg-background border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 cursor-pointer"
+              <div
+                key={service.title}
+                className={`svc-animate svc-flip group h-[22rem] sm:h-[24rem] ${isFlipped ? "is-flipped" : ""}`}
                 style={{
                   opacity: 0,
                   transform: "translateY(50px)",
-                  transition:
-                    "opacity 0.7s ease, transform 0.7s ease, border-color 0.5s ease",
+                  transition: "opacity 0.7s ease, transform 0.7s ease",
                 }}
                 data-delay={String(0.1 + index * 0.1)}
+                onClick={() => handleFlip(index)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    handleFlip(index);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-pressed={isFlipped}
+                aria-label={`${service.title} service card. ${isFlipped ? "Showing details" : "Flip to see details"}`}
               >
-                <div
-                  data-cursor="icon"
-                  className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 transition-all duration-500 origin-center ${service.bg}`}
-                >
-                  <Icon
-                    className={`w-7 h-7 text-foreground/40 transition-all duration-500 group-hover:stroke-[2.5] ${service.color}`}
-                  />
-                </div>
+                <div className="svc-flip-inner relative h-full w-full">
+                  {/* Front */}
+                  <div
+                    data-cursor="card"
+                    className="svc-flip-face svc-flip-front absolute inset-0 overflow-hidden rounded-xl sm:rounded-2xl border border-border transition-colors duration-500 group-hover:border-primary/30"
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/10" />
 
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-foreground/40 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
+                      <h3 className="text-2xl sm:text-3xl font-bold leading-tight text-white mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-white/60 [@media(hover:hover)_and_(pointer:fine)]:block hidden">
+                        Hover to explore
+                      </p>
+                      <p className="text-sm text-white/60 [@media(hover:hover)_and_(pointer:fine)]:hidden">
+                        Tap to explore
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="flex items-center gap-2 text-sm text-foreground/30 group-hover:text-primary transition-colors">
-                  Learn more
-                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {/* Back */}
+                  <Link
+                    href={service.href}
+                    className="svc-flip-face svc-flip-back absolute inset-0 flex flex-col justify-between rounded-xl sm:rounded-2xl border border-primary/30 bg-background p-6 sm:p-8 shadow-[inset_0_0_0_1px_rgba(176,42,118,0.08)] transition-colors duration-500 hover:border-primary/50"
+                    onClick={(event) => {
+                      if (
+                        !window.matchMedia("(hover: hover) and (pointer: fine)")
+                          .matches &&
+                        !isFlipped
+                      ) {
+                        event.preventDefault();
+                      }
+                    }}
+                  >
+                    <p className="text-base sm:text-lg text-foreground/55 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <span className="inline-flex items-center gap-2 text-base sm:text-lg font-bold text-primary">
+                      Learn more
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

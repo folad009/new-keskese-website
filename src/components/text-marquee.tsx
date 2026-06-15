@@ -43,7 +43,7 @@ export default function TextMarquee() {
   return (
     <section
       ref={containerRef}
-      className="py-10 lg:py-16 overflow-hidden border-y border-border"
+      className="py-8 sm:py-10 lg:py-16 overflow-hidden border-y border-border"
     >
       <div className="space-y-4">
         <div className="text-scroll-1 whitespace-nowrap ml-[-20%]">
