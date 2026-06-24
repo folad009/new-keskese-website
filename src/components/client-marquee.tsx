@@ -34,7 +34,7 @@ export default function ClientMarquee() {
       ref={containerRef}
       className="py-12 sm:py-14 lg:py-20 border-y border-border overflow-hidden bg-card/40 dark:bg-card/60"
     >
-      <p className="text-center text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-foreground/60 font-medium mb-10 sm:mb-12 page-x">
+      <p className="text-center text-xs sm:text-2xl font-black uppercase tracking-[0.25em] sm:tracking-[0.3em] text-foreground/60 mb-10 sm:mb-12 page-x">
         Trusted by the world&apos;s most ambitious brands
       </p>
       <div className="relative overflow-hidden">

@@ -94,11 +94,11 @@ export default function OurStoryPage() {
           />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 text-center lg:px-12 w-full">
-          <p className="story-hero-line text-sm uppercase tracking-[0.3em] text-primary font-medium mb-8">
+        <div className="relative max-w-495 mx-auto px-6 text-center lg:px-12 w-full">
+          <p className="story-hero-line text-2xl uppercase tracking-[0.3em] text-primary font-bold mb-4">
             Our Story
           </p>
-          <PopHeading className="text-5xl sm:text-6xl md:text-5xl lg:text-[4.5rem] font-bold leading-[0.97] tracking-tight mb-10">
+          <PopHeading className="text-8xl sm:text-7xl md:text-9xl lg:text-[7.5rem] font-bold leading-[0.97] tracking-tight mb-10">
             <PopHeading.Line className="story-hero-line">
               Born From a Belief That
             </PopHeading.Line>
@@ -115,7 +115,7 @@ export default function OurStoryPage() {
 
       {/* Founders Block */}
       <section className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-secondary">
               <Image
@@ -138,22 +138,22 @@ export default function OurStoryPage() {
             <div>
               <PopHeading
                 as="h2"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8"
+                className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
               >
                 <PopHeading.Line>About</PopHeading.Line>
                 <PopHeading.Line className="text-gradient">
                   Keskese Ltd.
                 </PopHeading.Line>
               </PopHeading>
-              <div className="space-y-6 text-foreground/50 leading-relaxed">
+              <div className="space-y-6 text-foreground/50 leading-relaxed text-xl">
                 <p>
                   We are an independent agency dedicated to experiential
-                  marketing and brand activations — nimble, flexible, and
+                  marketing and brand activations nimble, flexible, and
                   focused on delivering on time and on budget.
                 </p>
                 <p>
                   Our work creates connections that influence how audiences
-                  feel, think, and act about brands — driving performance,
+                  feel, think, and act about brands driving performance,
                   sales, and loyalty.
                 </p>
               </div>
@@ -167,7 +167,7 @@ export default function OurStoryPage() {
         eyebrow="Our Craft"
         line1="Designing Moments"
         line2="People Remember"
-        subtext="From pop-ups to stadium-scale activations — we make brands felt, not just seen."
+        subtext="From pop-ups to stadium-scale activations we make brands felt, not just seen."
         videoSrc={STOCK_VIDEOS.crowd}
         primaryCta={{ href: "/#work", label: "See Our Work" }}
         secondaryCta={{ href: "/contact", label: "Start a Project" }}
@@ -178,22 +178,21 @@ export default function OurStoryPage() {
 
       {/* Values */}
       <section ref={valuesRef} className="section-y-lg">
-        <div className="max-w-360 mx-auto page-x">
-          <div className="max-w-3xl mb-16">
+        <div className="max-w-495 mx-auto page-x">
+          <div className=" mb-16">
             <PopHeading
               as="h2"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              <PopHeading.Line>What We</PopHeading.Line>
-              <PopHeading.Line className="text-gradient">Stand For</PopHeading.Line>
+              <PopHeading.Line>What We Stand For</PopHeading.Line>
             </PopHeading>
-            <p className="text-lg text-foreground/40 leading-relaxed">
+            <p className="text-2xl text-foreground/40 leading-relaxed">
               These aren&apos;t just words on a wall. They&apos;re the filter
               through which every idea, every hire, and every project passes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
@@ -214,14 +213,11 @@ export default function OurStoryPage() {
 
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-card border-t border-border">
-        <div className="max-w-360 mx-auto page-x text-center">
-          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-6">
-            <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
-            <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
-              Next Chapter
-            </PopHeading.Line>
+        <div className="max-w-495 mx-auto page-x text-center">
+          <PopHeading as="h2" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <PopHeading.Line>Let&apos;s Design Your Next Chapter</PopHeading.Line>
           </PopHeading>
-          <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
+          <p className="text-foreground/50 mb-8 text-2xl mx-auto">
             We&apos;re always looking for ambitious brands and talented people.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

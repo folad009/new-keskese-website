@@ -145,7 +145,7 @@ export default function LegacySection() {
 
   return (
     <section ref={containerRef} data-scroll data-scroll-class="is-inview" className="py-10 sm:py-12 lg:py-16">
-      <div className="max-w-360 mx-auto page-x">
+      <div className="max-w-495 mx-auto page-x">
         {/* Header */}
         <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-20 mb-12 sm:mb-16 lg:mb-20">
           <div
@@ -220,23 +220,23 @@ export default function LegacySection() {
           }}
           data-delay="0.2"
         >
-          <p className="text-xl uppercase tracking-[0.2em] text-foreground/25 mb-4 text-center font-bold">
+          <p className="text-2xl uppercase tracking-[0.2em] text-foreground/50 mb-4 text-center font-bold">
             Recognized by
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-10">
             <Image
               src="/images/exman-logo-keskese.png"
               alt="Exman logo"
-              width={300}
+              width={500}
               height={150}
-              className="h-30 sm:h-30 w-auto"
+              className="h-48 sm:h-48 w-auto"
             />
             <Image
               src="/images/ises-logo-keskese.png"
               alt="ISES logo"
-              width={300}
+              width={500}
               height={150}
-              className="h-30 sm:h-30 w-auto"
+              className="h-48 sm:h-48 w-auto"
             />
           </div>
         </div>

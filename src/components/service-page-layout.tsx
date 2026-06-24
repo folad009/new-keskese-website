@@ -295,27 +295,25 @@ export default function ServicePageLayout({
 
       {/* ─── Features — Interactive Expandable List ─── */}
       <section ref={featuresRef} className="section-y border-t border-border">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="grid lg:grid-cols-5 gap-10 sm:gap-12 lg:gap-20">
             <div className="lg:col-span-2 lg:sticky lg:top-24 xl:top-32 lg:self-start">
-              <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
+              <p className="text-3xl uppercase tracking-[0.2em] text-primary font-bold mb-4">
                 What we deliver
               </p>
               <PopHeading as="h2" className="heading-section mb-6">
-                <PopHeading.Line>Capabilities</PopHeading.Line>
-                <PopHeading.Line className="text-gradient">
-                  & Expertise
-                </PopHeading.Line>
+                <PopHeading.Line>Expertise</PopHeading.Line>
+             
               </PopHeading>
-              <p className="text-foreground/35 leading-relaxed text-sm mb-8">
-                Click any capability to learn more about how we approach it.
+              <p className="text-foreground/50 leading-none text-xl mb-8">
+                Click any capability to learn more about how we approach it
               </p>
               <div className="hidden lg:block">
                 <div className="flex items-center gap-4 text-sm text-foreground/20">
                   <span className="text-3xl font-bold text-primary">
                     {String(features.length).padStart(2, "0")}
                   </span>
-                  <span>core capabilities</span>
+                  <span className="text-foreground/50 text-3xl uppercase font-bold">core capabilities</span>
                 </div>
               </div>
             </div>
@@ -434,9 +432,9 @@ export default function ServicePageLayout({
 
       {/* ─── Process — Interactive Stepper ─── */}
       <section ref={processRef} className="section-y">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="process-section-heading mb-16">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
+            <p className="text-3xl uppercase tracking-[0.2em] text-primary font-bold mb-4">
               How it works
             </p>
             <PopHeading as="h2" className="heading-section">
@@ -540,10 +538,10 @@ export default function ServicePageLayout({
 
       {/* ─── Case Studies ─── */}
       <section ref={workRef} className="section-y bg-card">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="work-heading flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-4">
+              <p className="text-3xl uppercase tracking-[0.2em] text-primary font-bold mb-4">
                 Proof in the work
               </p>
               <PopHeading as="h2" className="heading-section">
@@ -562,7 +560,7 @@ export default function ServicePageLayout({
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-4 gap-5">
             {caseStudies.map((cs, i) => (
               <div key={i} className="group cursor-pointer" data-cursor="card">
                 <div
@@ -702,23 +700,20 @@ export default function ServicePageLayout({
 
       {/* ─── CTA ─── */}
       <section ref={ctaRef} className="section-y bg-card">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="cta-inner relative bg-background border border-border rounded-3xl overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,var(--tw-gradient-stops))] from-[#d94fa0]/5 via-transparent to-transparent" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent" />
 
             <div className="relative px-5 py-10 sm:px-8 sm:py-16 lg:px-20 lg:py-24 text-center">
-              <p className="text-xs uppercase tracking-[0.2em] text-primary font-medium mb-6">
+              <p className="text-3xl uppercase tracking-[0.2em] text-primary font-bold mb-6">
                 Ready?
               </p>
               <PopHeading as="h2" className="heading-display mb-4">
-                <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
-                <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
-                  Next Experience
-                </PopHeading.Line>
+                <PopHeading.Line>Let&apos;s Design Your Next Experience</PopHeading.Line>
               </PopHeading>
-              <p className="text-foreground/35 mb-8 sm:mb-10 max-w-lg mx-auto text-sm sm:text-base px-2 sm:px-0">
+              <p className="text-foreground/50 mb-8 sm:mb-10 max-w-lg mx-auto text-xl sm:text-2xl px-2 sm:px-0">
                 {ctaText}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

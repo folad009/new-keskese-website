@@ -287,8 +287,8 @@ export default function MeetTheTeamPage() {
 
       {/* Leadership */}
       <section ref={leadershipRef} className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto page-x">
-          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+        <div className="max-w-495 mx-auto page-x">
+          <PopHeading as="h2" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12">
             <PopHeading.Line inline>Leadership</PopHeading.Line>
           </PopHeading>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -315,8 +315,8 @@ export default function MeetTheTeamPage() {
 
       {/* Full Team */}
       <section ref={teamRef} className="py-24 lg:py-32 bg-card">
-        <div className="max-w-360 mx-auto page-x">
-          <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-12">
+        <div className="max-w-495 mx-auto page-x">
+          <PopHeading as="h2" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12">
             <PopHeading.Line inline>The Team</PopHeading.Line>
           </PopHeading>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -331,7 +331,7 @@ export default function MeetTheTeamPage() {
 
       {/* Stats + Join CTA */}
       <section className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           {/*<div className="grid md:grid-cols-4 gap-8 mb-20">
             {[
               { value: "120+", label: "Team Members" },
@@ -349,10 +349,10 @@ export default function MeetTheTeamPage() {
           </div>*/}
 
           <div className="text-center bg-card border border-border rounded-3xl p-12 lg:p-16">
-            <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-4">
+            <PopHeading as="h2" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
               <PopHeading.Line inline>Want to join us?</PopHeading.Line>
             </PopHeading>
-            <p className="text-foreground/40 mb-8 max-w-lg mx-auto">
+            <p className="text-foreground/40 mb-8 text-xl max-w-lg mx-auto">
               We&apos;re always looking for extraordinary people who believe in
               the power of experiences.
             </p>

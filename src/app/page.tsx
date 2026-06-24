@@ -7,9 +7,7 @@ import HomeProviders from "@/components/home-providers";
 
 const AboutSection = dynamic(() => import("@/components/about-section"));
 const FeaturedWork = dynamic(() => import("@/components/featured-work"));
-const VideoBreakSection = dynamic(
-  () => import("@/components/video-break-section"),
-);
+{/*const VideoBreakSection = dynamic(() => import("@/components/video-break-section"));*/}
 const ServicesSection = dynamic(() => import("@/components/services-section"));
 const TextMarquee = dynamic(() => import("@/components/text-marquee"));
 const LegacySection = dynamic(() => import("@/components/legacy-section"));
@@ -26,7 +24,7 @@ export default function Home() {
         <ClientMarquee />
         <AboutSection />
         <FeaturedWork />
-        <VideoBreakSection />
+       {/*<VideoBreakSection />*/}
         <ServicesSection />
         <TextMarquee />
         <LegacySection />

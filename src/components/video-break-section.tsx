@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -38,9 +38,7 @@ export default function VideoBreakSection({
   className = "",
 }: VideoBreakSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scopeId = useRef(
-    `vb-${Math.random().toString(36).slice(2, 9)}`,
-  ).current;
+  const scopeId = `vb-${useId().replaceAll(":", "")}`;
 
   useGSAP(
     () => {
@@ -159,9 +157,9 @@ export default function VideoBreakSection({
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center page-x text-center pb-20 sm:pb-0">
           <div className="mb-6 flex items-center gap-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+            <span className="h-4 w-4 animate-pulse rounded-full bg-primary" />
             <span
-              className={`${scopeId}-sub text-[10px] font-medium uppercase tracking-[0.3em] text-foreground/60`}
+              className={`${scopeId}-sub text-2xl font-bold uppercase tracking-[0.3em] text-foreground/60`}
             >
               {eyebrow}
             </span>
@@ -169,9 +167,9 @@ export default function VideoBreakSection({
 
           <PopHeading
             as="h2"
-            className={`max-w-5xl font-bold leading-[1.05] tracking-tight text-wrap-balance ${
+            className={`max-w-495 font-bold leading-[1.05] tracking-tight text-wrap-balance ${
               compact
-                ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                ? "text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-9xl"
                 : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
             }`}
           >
@@ -184,7 +182,7 @@ export default function VideoBreakSection({
           </PopHeading>
 
           <p
-            className={`${scopeId}-sub mt-4 sm:mt-6 max-w-xl text-sm sm:text-base text-foreground/60 md:text-lg px-2 sm:px-0`}
+            className={`${scopeId}-sub mt-4 sm:mt-6 max-w-495 text-xl sm:text-base text-foreground/60 md:text-2xl px-2 sm:px-0`}
           >
             {subtext}
           </p>

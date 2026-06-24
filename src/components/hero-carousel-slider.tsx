@@ -124,6 +124,7 @@ export default function HeroCarouselSlider() {
             const isBackdrop = index <= 1;
             const isActive = index === 1;
             const isPreview = index >= 2 && index <= 4;
+            const isAboveFoldImage = isBackdrop || isPreview;
 
             return (
               <li
@@ -157,8 +158,7 @@ export default function HeroCarouselSlider() {
                       src={slide.image}
                       alt={slide.label}
                       fill
-                      priority={isActive}
-                      loading={isActive ? "eager" : "lazy"}
+                      loading={isAboveFoldImage ? "eager" : "lazy"}
                       sizes={isBackdrop ? "100vw" : "220px"}
                       className="hc-slider__media hc-slider__media--cover"
                     />

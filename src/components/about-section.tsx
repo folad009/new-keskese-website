@@ -85,16 +85,16 @@ export default function AboutSection() {
             </div>
 
             <div className="about-text mt-6 sm:mt-8 space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-lg text-foreground/50 leading-relaxed">
+              <p className="text-base sm:text-xl text-foreground/50 leading-relaxed">
                 Our campaigns and productions will create connections that
                 positively influence how internal and external audiences feel,
                 think and act about brands, products and services.
               </p>
-              <p className="text-base sm:text-lg text-foreground/50 leading-relaxed">
+              <p className="text-base sm:text-xl text-foreground/50 leading-relaxed">
                 Such campaigns will ignite improved performance, increase sales
                 and build strong brand loyalty.
               </p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4 sm:text-2xl">
                 <a
                   href="/about/our-story"
                   className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"

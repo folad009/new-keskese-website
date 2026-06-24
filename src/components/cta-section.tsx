@@ -42,16 +42,13 @@ export default function CTASection() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
 
           <div className="relative px-5 py-10 sm:px-8 sm:py-16 lg:px-10 lg:py-24">
-            <div className="max-w-7xl mx-auto text-center">
+            <div className="max-w-495 mx-auto text-center">
               <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary font-medium mb-4 sm:mb-6">
                 Ready to create something unforgettable?
               </p>
 
               <PopHeading as="h2" className="heading-display mb-6 sm:mb-8">
-                <PopHeading.Line>Let&apos;s Design Your</PopHeading.Line>
-                <PopHeading.Line className="text-gradient sm:whitespace-nowrap">
-                  Next Experience
-                </PopHeading.Line>
+                <PopHeading.Line>Let&apos;s Design Your Next Experience</PopHeading.Line>
               </PopHeading>
 
               {/*<p className="text-lg text-foreground/40 mb-12 max-w-xl mx-auto">

@@ -206,13 +206,12 @@ export default function OurJourneySection() {
         aria-hidden
       />
 
-      <div className="relative max-w-360 mx-auto page-x">
+      <div className="relative max-w-495 mx-auto page-x">
         <PopHeading
           as="h2"
           className="journey-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-16 lg:mb-20"
         >
-          <PopHeading.Line>Our</PopHeading.Line>
-          <PopHeading.Line className="text-gradient">Journey</PopHeading.Line>
+          <PopHeading.Line>Our Journey</PopHeading.Line>
         </PopHeading>
 
         <div className="journey-track relative">

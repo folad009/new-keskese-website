@@ -31,7 +31,7 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-border bg-background">
-      <div className="max-w-360 mx-auto page-x py-10 sm:py-12 lg:py-16">
+      <div className="max-w-495 mx-auto page-x py-10 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 sm:mb-16">
           <div className="sm:col-span-2 lg:col-span-1 mb-4 sm:mb-0">
             <Link href="/" className="inline-block mb-6">

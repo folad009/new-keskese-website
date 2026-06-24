@@ -11,9 +11,9 @@ import {
   Phone,
 } from "lucide-react";
 import PageShell from "@/components/page-shell";
-import VideoBreakSection from "@/components/video-break-section";
+// import VideoBreakSection from "@/components/video-break-section";
 import PopHeading from "@/components/pop-heading";
-import { STOCK_VIDEOS } from "@/lib/visual-assets";
+// import { STOCK_VIDEOS } from "@/lib/visual-assets";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -106,17 +106,17 @@ export default function ContactPage() {
 
       {/* Form + Info */}
       <section ref={formRef} id="contact-form" className="py-24 lg:py-32 border-t border-border">
-        <div className="max-w-360 mx-auto page-x">
+        <div className="max-w-495 mx-auto page-x">
           <div className="form-section grid lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <PopHeading as="h2" className="text-3xl md:text-4xl font-bold mb-2">
+              <PopHeading as="h2" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
                 <PopHeading.Line inline>Start a</PopHeading.Line>{" "}
                 <PopHeading.Line inline className="text-gradient">
                   Project
                 </PopHeading.Line>
               </PopHeading>
-              <p className="text-foreground/40 mb-10">
+              <p className="text-foreground/50 text-xl mb-10">
                 Fill out the form and we&apos;ll get back to you within 24
                 hours.
               </p>
@@ -225,43 +225,43 @@ export default function ContactPage() {
             {/* Sidebar Info */}
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <h3 className="text-lg font-semibold mb-4">General Enquiries</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">General Enquiries</h3>
                 <div className="space-y-3">
                   <a
                     href="mailto:intouch@keskese-ng.com"
-                    className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-sm"
+                    className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-2xl sm:text-xl font-medium"
                   >
-                    <Mail className="w-4 h-4 shrink-0" />
+                    <Mail className="w-6 h-6 shrink-0" />
                     intouch@keskese-ng.com
                   </a>
                   <a
                     href="tel:+2348034022383"
-                    className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-sm"
+                    className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-2xl sm:text-xl font-medium"
                   >
-                    <Phone className="w-4 h-4 shrink-0" />
+                    <Phone className="w-6 h-6 shrink-0" />
                      +234 803 402 2383
                   </a>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-4">New Business</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">New Business</h3>
                 <a
                   href="mailto:newbusiness@keskese-ng.com"
-                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-sm"
+                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-2xl sm:text-xl font-medium"
                 >
-                  <Mail className="w-4 h-4 shrink-0" />
+                  <Mail className="w-6 h-6 shrink-0" />
                   newbusiness@keskese-ng.com
                 </a>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-4">Careers</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">Careers</h3>
                 <a
                   href="mailto:careers@keskese-ng.com"
-                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-sm mb-2"
+                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-2xl sm:text-xl font-medium mb-2"
                 >
-                  <Mail className="w-4 h-4 shrink-0" />
+                  <Mail className="w-6 h-6 shrink-0" />
                   careers@keskese-ng.com
                 </a>
                 <a
@@ -274,21 +274,21 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-4">Press</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">Press</h3>
                 <a
                   href="mailto:press@keskese-ng.com"
-                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-sm"
+                  className="flex items-center gap-3 text-foreground/50 hover:text-primary transition-colors text-2xl sm:text-xl font-medium"
                 >
-                  <Mail className="w-4 h-4 shrink-0" />
+                  <Mail className="w-6 h-6 shrink-0" />
                   press@keskese-ng.com
                 </a>
               </div>
 
               <div className="bg-card border border-border rounded-2xl p-6">
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
                   Prefer a call?
                 </h3>
-                <p className="text-foreground/40 text-sm mb-4">
+                <p className="text-foreground/50 text-xl mb-4">
                   Make an introductory call to a member of our new business team.
                 </p>
                 <a
